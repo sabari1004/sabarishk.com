@@ -10,7 +10,7 @@ import {
   Award, 
   ShieldCheck,
   Linkedin
-} from 'lucide-astro';
+} from '../components/icons';
 
 // Fetch recent blog posts (max 2)
 const posts = await getCollection('blog', ({ data }) => !data.draft);

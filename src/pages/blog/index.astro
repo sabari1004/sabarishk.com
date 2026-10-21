@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { Search, BookOpen, Calendar, Clock, ArrowRight } from 'lucide-astro';
+import { Search, BookOpen, Calendar, Clock, ArrowRight } from '../../components/icons';
 
 const posts = await getCollection('blog', ({ data }: { data: { draft: boolean } }) => !data.draft);
 const sortedPosts = posts.sort(

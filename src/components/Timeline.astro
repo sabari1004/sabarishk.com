@@ -1,5 +1,5 @@
 ---
-import { CheckCircle2, Building2 } from 'lucide-astro';
+import { CheckCircle2, Building2 } from './icons';
 
 export interface MilestoneProgram {
   id: string;
@@ -18,7 +18,14 @@ const programs: MilestoneProgram[] = [
     period: '2024 — Present',
     role: 'Principal Enterprise Mobility Architect & SSAM Lead',
     organization: 'Enterprise Mobility Advisory & Consulting',
-    clients: ['PG&E', 'SCE', 'AES', 'Xcel Energy', 'LES', 'ARC Resources'],
+    clients: [
+      'California Electric & Gas Utility',
+      'Southern California Power Utility',
+      'Global Clean Energy Operator',
+      'Midwest Electric & Gas Utility',
+      'Municipal Power Authority',
+      'North American Energy Producer'
+    ],
     scope: 'Directing architectural strategy for next-generation SSAM 2410 and 2505 upgrades, enterprise Dynamic Forms rollout, and mission-critical SMP-to-BTP Mobile Services cloud migrations for top-tier US power, gas, and energy utilities.',
     deliverables: [
       'Architected SSAM 2410/2505 migration paths, preserving custom client extensions and multi-tier offline OData caches for 15,000+ field utility workers.',
@@ -32,8 +39,8 @@ const programs: MilestoneProgram[] = [
     id: 'program-lan-pharma',
     period: '2024',
     role: 'Senior Mobility Solutions Consultant',
-    organization: 'LAN Innovations',
-    clients: ['Swiss Pharma Enterprise', 'LAN Innovations Client Network'],
+    organization: 'Enterprise Mobility Practice',
+    clients: ['Multinational Life Sciences & Pharma Enterprise', 'Global Healthcare Manufacturer'],
     scope: 'Led SSAM 2405 BTP Cloud Foundry enterprise rollouts, Swiss Pharma GxP-compliant asset management upgrades (SSAM 2205 -> 2305), and custom MDK client packaging for highly regulated manufacturing facilities.',
     deliverables: [
       'Supervised SSAM 2205 to 2305 upgrade across validated GxP environments, ensuring 21 CFR Part 11 electronic signature audit compliance.',
