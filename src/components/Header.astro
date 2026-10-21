@@ -1,5 +1,5 @@
 ---
-import { Menu, X, ArrowUpRight, Linkedin, Github, Sun, Moon } from './icons';
+import { Menu, X, ArrowUpRight, Linkedin, Sun, Moon } from './icons';
 
 interface Props {
   currentPath?: string;
@@ -98,27 +98,6 @@ const isActive = (href: string) => {
         <Linkedin class="w-4 h-4" />
       </a>
 
-      <!-- GitHub Button -->
-      <a
-        href="https://github.com/sabari1004"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub Profile"
-        class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-500/50 hover:shadow-[0_0_12px_rgba(16,185,129,0.2)] transition-all focus:outline-none"
-        title="GitHub Profile"
-      >
-        <Github class="w-4 h-4" />
-      </a>
-
-      <!-- Connect CTA -->
-      <a
-        href="/contact"
-        data-astro-prefetch="hover"
-        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-zinc-800 dark:text-zinc-200 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700/80 hover:border-emerald-500/50 hover:text-emerald-600 dark:hover:text-white hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all ml-1"
-      >
-        <span>Connect</span>
-        <ArrowUpRight class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-      </a>
     </div>
 
     <!-- Mobile Controls: Theme + Hamburger -->
@@ -191,15 +170,6 @@ const isActive = (href: string) => {
           >
             <Linkedin class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             <span>LinkedIn</span>
-          </a>
-          <a
-            href="https://github.com/sabari1004"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-1.5 text-xs text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400"
-          >
-            <Github class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span>GitHub</span>
           </a>
         </div>
       </div>

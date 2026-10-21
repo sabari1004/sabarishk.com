@@ -55,42 +55,51 @@ const capabilitiesCatalog = [
   {
     id: 's4hana-backend-integration',
     icon: Database,
-    domain: 'Core ERP & Asset Management Integration',
-    title: 'S/4HANA Core & Backend Integration (ABAP / MAIF)',
-    problemStatement: 'Modern mobile frontends require high-concurrency OData feeds, but enterprise backends in utilities and energy operate on heavily customized legacy ECC or S/4HANA core architectures with complex Plant Maintenance (PM), Work Clearance Management (WCM), and IS-Utilities validations that reject standard out-of-the-box payloads.',
-    solutionPattern: 'Mobile Application Integration Framework (MAIF) & Clean Core ABAP Extensibility',
-    architectureDescription: 'Deep backend engineering across SAP PM, WCM (Isolation & Normalization), Project Systems (PS Network/Activity), and IS-Utilities. Provisioning custom high-throughput OData entities via SEGW and MAIF, and building modular ABAP BAdIs, User Exits, and BAPI wrappers that comply with S/4HANA Clean Core standards without brittle core modifications.',
-    diagram: `┌───────────────────────────┐         ┌──────────────────────────┐
-│ SAP BTP Mobile Services   │ <=====> │ SAP Cloud Connector (mTLS│
-└───────────────────────────┘         └────────────┬─────────────┘
-                                                   │
-                                                   ▼
+    domain: 'Core ERP, Phase Model & Resource Scheduling',
+    title: 'Core SAP EAM, Phase Model & Scheduling (MRS / RSH)',
+    problemStatement: 'Without strict lifecycle governance, raw notifications and unapproved work orders flood field technician mobile devices before parts are staged, safety permits are verified, or technician qualifications are validated. Legacy scheduling silos result in work center over-allocation, poor schedule compliance, and field crews dispatched to jobs not ready for execution.',
+    solutionPattern: 'SAP EAM 9-Phase Model Governance, RSH Maintenance Scheduling Board & MRS Dispatch Interlock',
+    architectureDescription: 'Architecting end-to-end maintenance governance using the SAP S/4HANA EAM Phase Model (Initiation, Screening, Planning, Approval, Preparation, Scheduling, Execution, Post-Execution, Completion). Aligning backend phase gates with dispatch engines: SAP Multi-Resource Scheduling (MRS) for complex resource/qualification constraints and SAP Resource Scheduling (RSH) for work center capacity leveling and maintenance schedule board tracking. Integrating MAIF distribution rules to ensure only work orders that have passed "Preparation" and "Scheduling" are dispatched to SSAM offline stores, while mobile progress triggers automatic phase back-propagation.',
+    diagram: `┌────────────────────────────────────────────────────────────────────────┐
+│               S/4HANA EAM 9-Phase Model Lifecycle Governance           │
+│ [Initiation] ──> [Screening] ──> [Planning] ──> [Approval] ──> [Prep]  │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ Gates Passed (Parts & Permits Ready)
+                                    ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│                      SAP S/4HANA 2023 Enterprise Core                  │
-│  ┌────────────────────────┐  ┌──────────────────┐  ┌────────────────┐  │
-│  │ SAP Gateway / SEGW     │  │ MAIF Mobile App  │  │ ABAP BAdIs &   │  │
-│  │ OData Provisioning     │──│ Integration Fwk  │──│ BAPI Adapters  │  │
-│  └────────────────────────┘  └──────────────────┘  └────────┬───────┘  │
-│                                                             │          │
-│  ┌──────────────────────────────────────────────────────────┴───────┐  │
-│  │ SAP PM (Orders/Notifs) • WCM (Permits) • PS (Networks) • IS-U    │  │
-│  └──────────────────────────────────────────────────────────────────┘  │
+│               Resource Scheduling & Capacity Leveling Engine           │
+│  ┌────────────────────────────────────┐  ┌──────────────────────────┐  │
+│  │ SAP Multi-Resource Scheduling(MRS) │  │ SAP Resource Scheduling  │  │
+│  │ (Qualifications, Tools, Gantt)     │  │ (RSH Scheduling Board)   │  │
+│  └─────────────────┬──────────────────┘  └─────────────┬────────────┘  │
+└────────────────────┼───────────────────────────────────┼───────────────┘
+                     │ Scheduled Orders & Operations     │
+                     ▼                                   ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│               MAIF Distribution Engine & Dispatch Filter               │
+│ (Restricts queue to Phase: SCHED / Dispatched; Filters Out Unprepared) │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ mTLS Sync (BTP Mobile Services)
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│               Field Technician SSAM Offline Mobile Store               │
+│ [Execution: Start/Hold/Complete] ──> [Post-Execution: TECO Back-Prop]  │
 └────────────────────────────────────────────────────────────────────────┘`,
     casePoints: [
       {
-        metric: 'MAIF Integration Standard',
-        detail: 'Standardized custom field extraction rules and BAdI exits across 14 enterprise utility asset categories.',
+        metric: '9-Phase Governance Gate',
+        detail: 'Implemented strict EAM phase control gates, preventing unapproved orders from prematurely saturating field technician mobile queues.',
       },
       {
-        metric: 'Zero-Downtime Clean Core',
-        detail: 'Refactored custom customer-namespace exits to safeguard automated S/4HANA release upgrades.',
+        metric: 'RSH & MRS Dispatch Sync',
+        detail: 'Configured Maintenance Scheduling Board and MRSS capacity leveling, aligning work center utilization with mobile crew availability.',
       },
       {
-        metric: 'Multi-Module Interlock',
-        detail: 'Unified work orders, equipment hierarchy, work center capacities, and financial settlement networks in real-time.',
+        metric: 'Real-Time Phase Interlock',
+        detail: 'Automated bidirectional status back-propagation from SSAM mobile events directly into S/4HANA Phase transitions (Execution to Post-Execution).',
       },
     ],
-    techStack: ['SAP S/4HANA', 'ECC EHP8', 'ABAP', 'RFC/BAPI', 'MAIF', 'SAP CAPM'],
+    techStack: ['SAP EAM Phase Model', 'SAP MRS', 'SAP RSH', 'Maintenance Scheduling Board', 'S/4HANA Scheduling', 'SSAM Field Dispatch', 'MAIF', 'ABAP'],
   },
   {
     id: 'field-extensions-gis-wcm',

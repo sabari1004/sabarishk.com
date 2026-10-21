@@ -26,14 +26,15 @@ const programs: MilestoneProgram[] = [
       'Municipal Power Authority',
       'North American Energy Producer'
     ],
-    scope: 'Directing architectural strategy for next-generation SSAM 2410 and 2505 upgrades, enterprise Dynamic Forms rollout, and mission-critical SMP-to-BTP Mobile Services cloud migrations for top-tier US power, gas, and energy utilities.',
+    scope: 'Directing architectural strategy for next-generation SSAM 2410 and 2505 upgrades, enterprise SAP EAM Phase Model governance, Multi-Resource Scheduling (MRS) / Resource Scheduling (RSH) dispatch interlock, and mission-critical SMP-to-BTP Mobile Services cloud migrations for top-tier US power, gas, and energy utilities.',
     deliverables: [
       'Architected SSAM 2410/2505 migration paths, preserving custom client extensions and multi-tier offline OData caches for 15,000+ field utility workers.',
+      'Implemented S/4HANA EAM Phase Model control gates and Resource Scheduling (RSH/MRS) interlocks, preventing unapproved work from hitting field technician mobile queues prematurely.',
+      'Configured bidirectional synchronization between RSH Maintenance Scheduling Boards and SSAM mobile execution states, updating phase transitions in real time.',
       'Designed end-to-end integration architecture for Mirata Forms and SAP Dynamic Forms, automating Job Safety Analyses (JSA) and EHS regulatory compliance.',
       'Led SMP 3.0 on-premise decommissioning to SAP BTP Mobile Services on Cloud Foundry, reducing infrastructure maintenance overhead by 45%.',
-      'Configured hardened MDK client branding (iOS IPA / Android APK) integrated with Microsoft Intune MAM and VMware Workspace ONE.',
     ],
-    techStack: ['SSAM 2505', 'SAP BTP Cloud Foundry', 'MDK', 'SAP Dynamic Forms', 'Mirata Forms', 'S/4HANA EAM', 'Esri GIS'],
+    techStack: ['SSAM 2505', 'SAP EAM Phase Model', 'SAP RSH', 'SAP MRS', 'SAP BTP Mobile', 'MDK', 'SAP Dynamic Forms', 'S/4HANA EAM', 'Esri GIS'],
   },
   {
     id: 'program-lan-pharma',
@@ -55,13 +56,14 @@ const programs: MilestoneProgram[] = [
     role: 'Lead SAP Mobility Architect',
     organization: 'Wipro Technologies',
     clients: ['UK Water & Electric Utilities', 'Global Energy Leaders'],
-    scope: 'Orchestrated massive modernization programs transitioning legacy Syclo-Agentry platforms to SAP S/4HANA across Plant Maintenance (PM), Project Systems (PS), CRM, and Work Clearance Management (WCM).',
+    scope: 'Orchestrated massive modernization programs transitioning legacy Syclo-Agentry platforms to SAP S/4HANA across Plant Maintenance (PM), Multi-Resource Scheduling (MRS), Project Systems (PS), CRM, and Work Clearance Management (WCM).',
     deliverables: [
       'Modernized UK Utility operations through SSAM 2210 rollout with Linear Asset Management (LAM) and GIS pipeline visualization.',
+      'Integrated SAP Multi-Resource Scheduling (MRS) resource planning with mobile dispatch, aligning technician qualifications and tool tracking with field service work orders.',
       'Designed dual-run data reconciliation adapters enabling field technicians to transition seamlessly from legacy Syclo Work Manager to MDK SSAM.',
       'Engineered backend ABAP BAdIs, custom BAPIs, and MAIF OData service endpoints for complex field service orders and WCM isolation tagouts.',
     ],
-    techStack: ['Syclo-Agentry', 'SAP Work Manager 6.2', 'SAP S/4HANA', 'SSAM 2210', 'ABAP MAIF', 'WCM', 'Linear Asset Management'],
+    techStack: ['Syclo-Agentry', 'SAP Work Manager 6.2', 'SAP S/4HANA', 'SSAM 2210', 'SAP MRS', 'ABAP MAIF', 'WCM', 'Linear Asset Management'],
   },
   {
     id: 'program-earlier-foundations',

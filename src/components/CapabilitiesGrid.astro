@@ -34,14 +34,14 @@ const capabilities: CapabilityItem[] = [
   {
     id: 's4hana-backend-integration',
     icon: Database,
-    title: 'S/4HANA Core & Backend Integration (ABAP / MAIF)',
-    domain: 'Core ERP & Asset Management',
-    focus: 'Deep backend integration across SAP PM, WCM (Isolation/Normalization), PS (Network/Activity), and IS-Utilities. Custom BAPIs, BAdIs, User Exits, OData provisioning via SEGW/CAP, and Mobile Application Integration Framework (MAIF).',
-    techStack: ['SAP S/4HANA', 'ECC EHP8', 'ABAP', 'RFC/BAPI', 'MAIF', 'SAP CAPM'],
+    title: 'Core SAP EAM, Phase Model & Scheduling (MRS / RSH)',
+    domain: 'Core ERP, Lifecycle Governance & Scheduling',
+    focus: 'Architecting the 9-phase SAP EAM lifecycle (Initiation, Screening, Planning, Approval, Preparation, Scheduling, Execution, Post-Execution, Completion) interlocked with mobile dispatching. Advanced workforce planning via SAP Multi-Resource Scheduling (MRS) and SAP Resource Scheduling (RSH / Maintenance Scheduling Board) with work center utilization leveling and direct SSAM work order sync.',
+    techStack: ['SAP EAM Phase Model', 'SAP MRS', 'SAP RSH', 'Maintenance Scheduling Board', 'S/4HANA Scheduling', 'SSAM Field Dispatch'],
     highlights: [
-      'Developed high-performance OData services via SEGW and Mobile Application Integration Framework (MAIF)',
-      'Engineered complex ABAP BAdI extensions and User Exits across SAP PM, WCM, PS, and IS-Utilities',
-      'Modernized legacy RFC/BAPI layers to align with SAP S/4HANA Clean Core architectural governance',
+      'Architected 9-phase SAP EAM lifecycle governance, interlocking backend phase gates with mobile order dispatching',
+      'Integrated SAP Multi-Resource Scheduling (MRS) Gantt boards, resource constraints, and qualification leveling for field crews',
+      'Configured SAP Resource Scheduling (RSH) Maintenance Scheduling Board, work center leveling, and direct SSAM sync',
     ],
   },
   {
