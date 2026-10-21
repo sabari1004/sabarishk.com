@@ -19,17 +19,17 @@ import {
   description="Available for strategic guidance on SAP Service & Asset Manager (SSAM) implementations, S/4HANA mobility migrations, MDK custom development, and utility field architecture."
 >
   <!-- Page Header -->
-  <section class="pt-16 pb-12 md:pt-20 md:pb-16 border-b border-zinc-800/80 bg-zinc-950/70 relative">
+  <section class="pt-16 pb-12 md:pt-20 md:pb-16 border-b border-zinc-200 dark:border-zinc-800/80 bg-zinc-100/70 dark:bg-zinc-950/70 relative transition-colors">
     <div class="container mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-800/40 text-xs font-mono text-emerald-400">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-xs font-mono text-emerald-800 dark:text-emerald-400">
           <MessageSquare class="w-3.5 h-3.5" />
           <span>Direct Advisory Channel</span>
         </div>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
           Consulting &amp; Architectural Advisory
         </h1>
-        <p class="text-base sm:text-lg text-zinc-300 leading-relaxed font-normal">
+        <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
           Available for strategic guidance on SAP Service &amp; Asset Manager (SSAM) implementations, S/4HANA mobility migrations, MDK custom development, and utility field architecture.
         </p>
       </div>
@@ -42,22 +42,22 @@ import {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
         <!-- Contact Form (7 cols) -->
         <div class="lg:col-span-7">
-          <div class="card-surface rounded-2xl p-6 sm:p-10 border border-zinc-800/90 bg-zinc-900/40 backdrop-blur-xl relative">
+          <div class="card-surface rounded-2xl p-6 sm:p-10 border border-zinc-200 dark:border-zinc-800/90 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-xl relative shadow-sm">
             <!-- Form Header -->
             <div class="mb-6 space-y-1">
-              <h2 class="text-xl font-bold text-white">Direct Advisory Dispatch</h2>
-              <p class="text-xs text-zinc-400">
+              <h2 class="text-xl font-bold text-zinc-900 dark:text-white">Direct Advisory Dispatch</h2>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400">
                 Inquiries are reviewed personally and responded to within 24 business hours. No marketing automation, zero spam.
               </p>
             </div>
 
             <!-- Success State Panel (Hidden by default) -->
-            <div id="form-success" class="hidden py-8 px-6 rounded-xl bg-emerald-950/30 border border-emerald-500/40 text-center space-y-4 animate-fade-in">
-              <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-900/60 border border-emerald-500/60 text-emerald-400">
+            <div id="form-success" class="hidden py-8 px-6 rounded-xl bg-emerald-100/60 dark:bg-emerald-950/30 border border-emerald-300 dark:border-emerald-500/40 text-center space-y-4 animate-fade-in">
+              <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-emerald-200 dark:bg-emerald-900/60 border border-emerald-400 dark:border-emerald-500/60 text-emerald-800 dark:text-emerald-400">
                 <CheckCircle2 class="w-6 h-6" />
               </div>
-              <h3 class="text-lg font-bold text-white">Transmission Confirmed</h3>
-              <p class="text-xs text-zinc-300 max-w-md mx-auto leading-relaxed">
+              <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Transmission Confirmed</h3>
+              <p class="text-xs text-zinc-700 dark:text-zinc-300 max-w-md mx-auto leading-relaxed">
                 Thank you for reaching out. Your advisory inquiry has been securely received. I will review your requirements and respond via your provided work email promptly.
               </p>
               <button
@@ -70,8 +70,8 @@ import {
             </div>
 
             <!-- Error Toast Banner (Hidden by default) -->
-            <div id="form-error" class="hidden mb-6 p-4 rounded-xl bg-rose-950/40 border border-rose-800/60 text-rose-300 text-xs flex items-center gap-3">
-              <AlertCircle class="w-4 h-4 shrink-0 text-rose-400" />
+            <div id="form-error" class="hidden mb-6 p-4 rounded-xl bg-rose-100 dark:bg-rose-950/40 border border-rose-300 dark:border-rose-800/60 text-rose-800 dark:text-rose-300 text-xs flex items-center gap-3">
+              <AlertCircle class="w-4 h-4 shrink-0 text-rose-500 dark:text-rose-400" />
               <span id="error-message">Unable to dispatch your message. Please verify your connection or connect directly via LinkedIn.</span>
             </div>
 
@@ -83,8 +83,8 @@ import {
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <!-- Name Field -->
                 <div class="space-y-1.5">
-                  <label for="name" class="block text-xs font-mono text-zinc-300">
-                    Your Name <span class="text-emerald-400">*</span>
+                  <label for="name" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300">
+                    Your Name <span class="text-emerald-500 dark:text-emerald-400">*</span>
                   </label>
                   <input
                     type="text"
@@ -92,14 +92,14 @@ import {
                     name="name"
                     required
                     placeholder="e.g., Sarah Jenkins"
-                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
+                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
                   />
                 </div>
 
                 <!-- Organization Field -->
                 <div class="space-y-1.5">
-                  <label for="organization" class="block text-xs font-mono text-zinc-300">
-                    Organization / Enterprise <span class="text-emerald-400">*</span>
+                  <label for="organization" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300">
+                    Organization / Enterprise <span class="text-emerald-500 dark:text-emerald-400">*</span>
                   </label>
                   <input
                     type="text"
@@ -107,7 +107,7 @@ import {
                     name="organization"
                     required
                     placeholder="e.g., Pacific Gas & Electric / Energy Corp"
-                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
+                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
                   />
                 </div>
               </div>
@@ -115,8 +115,8 @@ import {
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <!-- Work Email Field -->
                 <div class="space-y-1.5">
-                  <label for="email" class="block text-xs font-mono text-zinc-300">
-                    Work Email <span class="text-emerald-400">*</span>
+                  <label for="email" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300">
+                    Work Email <span class="text-emerald-500 dark:text-emerald-400">*</span>
                   </label>
                   <input
                     type="email"
@@ -124,20 +124,20 @@ import {
                     name="email"
                     required
                     placeholder="s.jenkins@utility.com"
-                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
+                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
                   />
                 </div>
 
                 <!-- Inquiry Type Dropdown -->
                 <div class="space-y-1.5">
-                  <label for="inquiryType" class="block text-xs font-mono text-zinc-300">
-                    Inquiry Type <span class="text-emerald-400">*</span>
+                  <label for="inquiryType" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300">
+                    Inquiry Type <span class="text-emerald-500 dark:text-emerald-400">*</span>
                   </label>
                   <select
                     id="inquiryType"
                     name="inquiryType"
                     required
-                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-100 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
+                    class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
                   >
                     <option value="SSAM Upgrade / Implementation">SSAM Upgrade / Implementation</option>
                     <option value="Legacy Agentry Migration">Legacy Agentry Migration</option>
@@ -149,8 +149,8 @@ import {
 
               <!-- Message Field -->
               <div class="space-y-1.5">
-                <label for="message" class="block text-xs font-mono text-zinc-300">
-                  Requirements &amp; Scope Overview <span class="text-emerald-400">*</span>
+                <label for="message" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300">
+                  Requirements &amp; Scope Overview <span class="text-emerald-500 dark:text-emerald-400">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -158,7 +158,7 @@ import {
                   rows="5"
                   required
                   placeholder="Outline your current system landscape (e.g. SSAM version, S/4HANA release, Syclo Work Manager version, field crew scale, or timeline)..."
-                  class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors resize-y min-h-[120px]"
+                  class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 transition-colors resize-y min-h-[120px]"
                 ></textarea>
               </div>
 
@@ -184,13 +184,13 @@ import {
         <!-- Sidebar / Advisory Metadata (5 cols) -->
         <div class="lg:col-span-5 space-y-6">
           <!-- Quick Connect Card -->
-          <div class="card-surface rounded-xl p-6 border border-emerald-500/40 bg-zinc-900/60 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)] space-y-3">
-            <div class="flex items-center gap-2 text-xs font-mono text-emerald-400">
-              <Linkedin class="w-4 h-4 text-emerald-400" />
+          <div class="card-surface rounded-xl p-6 border border-emerald-500/40 bg-emerald-500/[0.04] dark:bg-zinc-900/60 shadow-[0_0_25px_-5px_rgba(16,185,129,0.15)] space-y-3">
+            <div class="flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400">
+              <Linkedin class="w-4 h-4" />
               <span class="font-semibold uppercase tracking-wider">Quick Connect</span>
             </div>
-            <h3 class="text-base font-bold text-white">Direct Executive Message</h3>
-            <p class="text-xs text-zinc-300 leading-relaxed">
+            <h3 class="text-base font-bold text-zinc-900 dark:text-white">Direct Executive Message</h3>
+            <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
               Prefer direct professional outreach? Message me directly on LinkedIn for enterprise consulting, SSAM architecture advisory, or migration strategies.
             </p>
             <a
@@ -207,24 +207,24 @@ import {
           </div>
 
           <!-- Availability Card -->
-          <div class="card-surface rounded-xl p-6 border border-zinc-800/80 bg-zinc-900/40 space-y-3">
-            <div class="flex items-center gap-2 text-xs font-mono text-emerald-400">
-              <span class="h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <div class="card-surface rounded-xl p-6 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 shadow-sm space-y-3">
+            <div class="flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400">
+              <span class="h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-ping"></span>
               <span class="font-semibold uppercase tracking-wider">Advisory Status</span>
             </div>
-            <h3 class="text-base font-bold text-white">Advising Utilities, Energy &amp; Pharma Enterprises</h3>
-            <p class="text-xs text-zinc-400 leading-relaxed">
+            <h3 class="text-base font-bold text-zinc-900 dark:text-white">Advising Utilities, Energy &amp; Pharma Enterprises</h3>
+            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Available for SAP Service and Asset Manager (SSAM) architectural roadmaps, legacy Syclo-Agentry modernization audits, offline-first field mobile strategy, and S/4HANA EAM integration reviews.
             </p>
-            <div class="pt-2 border-t border-zinc-800/60 flex items-center gap-2 text-xs font-mono text-zinc-400">
-              <Clock class="w-3.5 h-3.5 text-zinc-500" />
+            <div class="pt-2 border-t border-zinc-200 dark:border-zinc-800/60 flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+              <Clock class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
               <span>Response SLA: Within 24 Business Hours</span>
             </div>
           </div>
 
           <!-- Professional Profiles & Direct Links -->
-          <div class="card-surface rounded-xl p-6 border border-zinc-800/80 bg-zinc-900/40 space-y-4">
-            <div class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
+          <div class="card-surface rounded-xl p-6 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 shadow-sm space-y-4">
+            <div class="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold">
               Professional Profiles &amp; Repositories
             </div>
             <div class="space-y-2.5 text-xs">
@@ -232,82 +232,82 @@ import {
                 href="https://www.linkedin.com/in/sabarish-k-6b979918/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-between p-3 rounded-lg bg-zinc-950/60 border border-zinc-800 hover:border-emerald-500/50 text-zinc-300 hover:text-white transition-all group"
+                class="flex items-center justify-between p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-all group"
                 title="LinkedIn Profile: Sabarish Kamaraju"
               >
                 <div class="flex items-center gap-2.5">
-                  <Linkedin class="w-4 h-4 text-emerald-400" />
+                  <Linkedin class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>LinkedIn Profile (/in/sabarish-k-6b979918/)</span>
                 </div>
-                <ExternalLink class="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+                <ExternalLink class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" />
               </a>
 
               <a
                 href="https://github.com/sabari1004"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-between p-3 rounded-lg bg-zinc-950/60 border border-zinc-800 hover:border-emerald-500/50 text-zinc-300 hover:text-white transition-all group"
+                class="flex items-center justify-between p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-all group"
                 title="GitHub: sabari1004"
               >
                 <div class="flex items-center gap-2.5">
-                  <Github class="w-4 h-4 text-emerald-400" />
+                  <Github class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>GitHub Repositories (@sabari1004)</span>
                 </div>
-                <ExternalLink class="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+                <ExternalLink class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" />
               </a>
             </div>
           </div>
 
           <!-- Verified Credly Certification Badges -->
-          <div class="card-surface rounded-xl p-6 border border-zinc-800/80 bg-zinc-900/40 space-y-4">
-            <div class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold flex items-center justify-between">
+          <div class="card-surface rounded-xl p-6 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 shadow-sm space-y-4">
+            <div class="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold flex items-center justify-between">
               <span>Verified SAP Credentials</span>
-              <span class="text-[10px] text-emerald-400 font-normal">Credly Official ↗</span>
+              <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-normal">Credly Official ↗</span>
             </div>
             <div class="space-y-2.5 text-xs">
               <a
                 href="https://www.credly.com/badges/c0bdd6e0-8510-490a-a778-796466214a8c"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-between p-3 rounded-lg bg-zinc-950/60 border border-zinc-800 hover:border-emerald-500/50 text-zinc-300 hover:text-white transition-all group"
+                class="flex items-center justify-between p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-all group"
                 title="Verify Solution Architect on Credly"
               >
                 <div class="flex items-start gap-2.5">
-                  <Award class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                  <Award class="w-4 h-4 text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                   <div>
-                    <div class="font-semibold text-zinc-200 group-hover:text-white">SAP Certified Solution Architect</div>
+                    <div class="font-semibold text-zinc-900 dark:text-zinc-200 group-hover:text-emerald-600 dark:group-hover:text-white">SAP Certified Solution Architect</div>
                     <div class="text-[11px] text-zinc-500">SAP BTP &amp; SAP Business AI Platform</div>
                   </div>
                 </div>
-                <ExternalLink class="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 shrink-0 transition-colors" />
+                <ExternalLink class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 shrink-0 transition-colors" />
               </a>
 
               <a
                 href="https://www.credly.com/badges/d3adcc74-a03e-42a3-a681-6e7882ec088e"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-between p-3 rounded-lg bg-zinc-950/60 border border-zinc-800 hover:border-emerald-500/50 text-zinc-300 hover:text-white transition-all group"
+                class="flex items-center justify-between p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-all group"
                 title="Verify SAP Build Developer on Credly"
               >
                 <div class="flex items-start gap-2.5">
-                  <ShieldCheck class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                  <ShieldCheck class="w-4 h-4 text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
                   <div>
-                    <div class="font-semibold text-zinc-200 group-hover:text-white">SAP Certified Associate Developer</div>
+                    <div class="font-semibold text-zinc-900 dark:text-zinc-200 group-hover:text-emerald-600 dark:group-hover:text-white">SAP Certified Associate Developer</div>
                     <div class="text-[11px] text-zinc-500">Low-Code/No-Code Developer – SAP Build</div>
                   </div>
                 </div>
-                <ExternalLink class="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 shrink-0 transition-colors" />
+                <ExternalLink class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 shrink-0 transition-colors" />
               </a>
             </div>
           </div>
 
           <!-- Security & Privacy Standards -->
-          <div class="card-surface rounded-xl p-5 border border-zinc-800/80 bg-zinc-900/40 space-y-2">
-            <div class="flex items-center gap-2 text-xs font-mono text-zinc-400">
-              <ShieldCheck class="w-4 h-4 text-emerald-400" />
+          <div class="card-surface rounded-xl p-5 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 shadow-sm space-y-2">
+            <div class="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+              <ShieldCheck class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span class="font-semibold uppercase tracking-wider">NDA &amp; Confidentiality</span>
             </div>
-            <p class="text-xs text-zinc-400 leading-relaxed">
+            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Standard mutual non-disclosure agreements (NDAs) supported prior to proprietary utility architecture, RFPs, or codebase reviews.
             </p>
           </div>

@@ -30,37 +30,37 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
   article={true}
 >
   <!-- Post Header -->
-  <header class="pt-16 pb-12 border-b border-zinc-800/80 bg-zinc-950/80 relative">
+  <header class="pt-16 pb-12 border-b border-zinc-200 dark:border-zinc-800/80 bg-zinc-100/70 dark:bg-zinc-950/80 relative transition-colors">
     <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
       <!-- Back Link -->
       <a
         href="/blog"
-        class="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-emerald-400 transition-colors mb-6 group"
+        class="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors mb-6 group"
       >
         <ArrowLeft class="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
         <span>Return to Publications</span>
       </a>
 
       <!-- Category & Meta Info -->
-      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400 mb-4">
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-4">
         <span class:list={[
           'px-2.5 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider',
           post.data.category === 'technical'
-            ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/40'
-            : 'bg-violet-950/60 text-violet-400 border border-violet-800/40'
+            ? 'bg-cyan-100 dark:bg-cyan-950/60 text-cyan-800 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/40'
+            : 'bg-violet-100 dark:bg-violet-950/60 text-violet-800 dark:text-violet-400 border border-violet-200 dark:border-violet-800/40'
         ]}>
           {post.data.category}
         </span>
         <span>•</span>
         <div class="flex items-center gap-1.5">
-          <Calendar class="w-3.5 h-3.5 text-zinc-500" />
+          <Calendar class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
           <span>{new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
         </div>
         {post.data.readingTime && (
           <>
             <span>•</span>
             <div class="flex items-center gap-1.5">
-              <Clock class="w-3.5 h-3.5 text-zinc-500" />
+              <Clock class="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
               <span>{post.data.readingTime}</span>
             </div>
           </>
@@ -68,17 +68,17 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
       </div>
 
       <!-- Main Post Title -->
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15] mb-4">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.15] mb-4">
         {post.data.title}
       </h1>
 
       <!-- Description / Excerpt -->
-      <p class="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-3xl mb-6">
+      <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl mb-6">
         {post.data.description}
       </p>
 
       <!-- Tags Row -->
-      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-800/60">
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-200 dark:border-zinc-800/60">
         <span class="text-xs font-mono text-zinc-500">Filed under:</span>
         {post.data.tags.map((tag: string) => (
           <span class="tech-pill text-xs">{tag}</span>
@@ -92,16 +92,16 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
       <!-- Main Article Prose (8 cols on desktop) -->
       <div class="lg:col-span-8">
-        <article id="article-content" class="prose prose-invert prose-zinc max-w-none">
+        <article id="article-content" class="prose dark:prose-invert prose-zinc max-w-none">
           <Content />
         </article>
 
         <!-- Post-Article Discussion Card -->
-        <div class="mt-16 pt-8 border-t border-zinc-800/80">
-          <div class="card-surface rounded-xl p-6 sm:p-8 border border-zinc-800/80 bg-zinc-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800/80">
+          <div class="card-surface rounded-xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
             <div class="space-y-1">
-              <h3 class="text-base font-bold text-white">Have questions regarding this architecture?</h3>
-              <p class="text-xs text-zinc-400 max-w-md">
+              <h3 class="text-base font-bold text-zinc-900 dark:text-white">Have questions regarding this architecture?</h3>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400 max-w-md">
                 I consult with engineering leaders on distributed systems, mobile offline sync, and cloud migration resilience.
               </p>
             </div>
@@ -116,9 +116,9 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
       <aside class="hidden lg:block lg:col-span-4">
         <div class="sticky top-24 space-y-6">
           {tocHeadings.length > 0 && (
-            <div class="card-surface rounded-xl p-5 border border-zinc-800/80 bg-zinc-900/40 backdrop-blur-md">
-              <div class="flex items-center gap-2 pb-3 mb-3 border-b border-zinc-800/70 text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
-                <ListTree class="w-3.5 h-3.5 text-emerald-400" />
+            <div class="card-surface rounded-xl p-5 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-md shadow-sm">
+              <div class="flex items-center gap-2 pb-3 mb-3 border-b border-zinc-200 dark:border-zinc-800/70 text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold">
+                <ListTree class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>Table of Contents</span>
               </div>
               <nav id="toc-nav" class="space-y-1 text-xs">
@@ -127,8 +127,8 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
                     href={`#${h.slug}`}
                     class:list={[
                       'toc-link block py-1.5 px-2 rounded-md transition-colors leading-tight',
-                      h.depth === 3 ? 'pl-5 text-zinc-400' : 'text-zinc-300 font-medium',
-                      'hover:text-emerald-400 hover:bg-zinc-800/50'
+                      h.depth === 3 ? 'pl-5 text-zinc-500 dark:text-zinc-400' : 'text-zinc-700 dark:text-zinc-300 font-medium',
+                      'hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50'
                     ]}
                     data-slug={h.slug}
                   >
@@ -140,18 +140,18 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
           )}
 
           <!-- Author Summary Card -->
-          <div class="card-surface rounded-xl p-5 border border-zinc-800/80 bg-zinc-900/40 text-xs space-y-2">
+          <div class="card-surface rounded-xl p-5 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 text-xs space-y-2 shadow-sm">
             <div class="font-mono text-zinc-500 uppercase tracking-wider text-[10px]">Author &amp; Architect</div>
-            <div class="font-bold text-zinc-100">Sabarish Kamaraju</div>
-            <p class="text-zinc-400 leading-relaxed text-[11px]">
+            <div class="font-bold text-zinc-900 dark:text-zinc-100">Sabarish Kamaraju</div>
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-[11px]">
               Enterprise Mobility Architect specializing in SAP Service &amp; Asset Manager (SSAM), S/4HANA migrations, and field workforce solutions for global utilities.
             </p>
-            <div class="pt-2 border-t border-zinc-800/60">
+            <div class="pt-2 border-t border-zinc-200 dark:border-zinc-800/60">
               <a
                 href="https://www.linkedin.com/in/sabarish-k-6b979918/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 hover:text-emerald-300"
+                class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300"
               >
                 <span>Connect on LinkedIn ↗</span>
               </a>

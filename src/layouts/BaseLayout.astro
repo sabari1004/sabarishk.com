@@ -60,14 +60,55 @@ const siteTitle = title.includes('Sabarish Kamaraju') ? title : `${title} | Saba
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- System Theme Initialization (Runs before render to prevent FOUC) -->
+    <script is:inline>
+      (function () {
+        function getTheme() {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'dark' || saved === 'light') return saved;
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function applyTheme() {
+          const theme = getTheme();
+          const root = document.documentElement;
+          if (theme === 'dark') {
+            root.classList.add('dark');
+            root.classList.remove('light');
+            root.style.colorScheme = 'dark';
+          } else {
+            root.classList.remove('dark');
+            root.classList.add('light');
+            root.style.colorScheme = 'light';
+          }
+        }
+
+        // Apply immediately
+        applyTheme();
+
+        // Listen for system preference changes live
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const stored = localStorage.getItem('theme');
+          if (!stored || stored === 'system') {
+            applyTheme();
+          }
+        });
+
+        // Re-apply on Astro page transitions
+        document.addEventListener('astro:after-swap', applyTheme);
+      })();
+    </script>
+
     <!-- Astro View Transitions -->
     <ClientRouter fallback="swap" />
   </head>
-  <body class="bg-zinc-950 text-zinc-100 flex flex-col min-h-screen antialiased selection:bg-emerald-500/30 selection:text-white">
+  <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col min-h-screen antialiased selection:bg-emerald-500/30 selection:text-emerald-950 dark:selection:text-white transition-colors duration-200">
     <!-- Subtle Ambient Glows and Grid -->
     <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden" aria-hidden="true">
-      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-emerald-500/10 via-cyan-500/5 to-transparent blur-3xl opacity-75"></div>
-      <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-emerald-500/15 via-cyan-500/10 to-transparent blur-3xl opacity-50 dark:opacity-75"></div>
+      <div class="absolute inset-0 bg-grid-pattern opacity-60 dark:opacity-40"></div>
     </div>
 
     <!-- Sticky Navigation -->
