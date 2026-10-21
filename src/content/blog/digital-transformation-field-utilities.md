@@ -30,7 +30,7 @@ To a lineworker wearing heavy rubber insulating gloves in freezing rain, standin
 
 ### The Solution: Role-Based Progressive Disclosure
 
-Enterprise mobility architects must act as ruthless editors on behalf of the field worker. By applying the principle of **progressive disclosure**:
+Enterprise solutions architects must act as ruthless editors on behalf of the field worker. By applying the principle of **progressive disclosure**:
 - Expose only the critical 20% of fields necessary to execute the physical task safely (Equipment ID, Safety Permit Lock, Work Center, Operation Status).
 - Pre-populate accounting dimensions, cost centers, and asset hierarchies automatically via backend MAIF rules or client contextual telemetry.
 - Design interface buttons and hit targets for gloved fingers and outdoor high-glare environments.
@@ -74,9 +74,9 @@ Infrastructure:  "The Cloud Connector network bandwidth is saturated."
 Operations:      "Our technicians refuse to use the mobile device."
 ```
 
-### The Role of the Enterprise Mobility Architect
+### The Role of the Enterprise Solutions Architect
 
-To break through this operational gridlock, the Mobility Architect must operate as an **objective technical arbiter with cross-stack fluency**:
+To break through this operational gridlock, the Solutions Architect must operate as an **objective technical arbiter with cross-stack fluency**:
 - Possess the technical depth to profile the mobile client's SQLite UltraLite execution logs.
 - Trace OData payloads through SAP BTP Mobile Services and SAP Cloud Connector.
 - Inspect ABAP runtime traces (`ST05` SQL trace / `SAT` runtime analysis) on the S/4HANA backend to identify inefficient database table joins.

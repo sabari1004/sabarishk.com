@@ -6,7 +6,8 @@ import {
   Clock, 
   ArrowLeft, 
   ListTree, 
-  Check 
+  Check,
+  Linkedin 
 } from '../../components/icons';
 
 export async function getStaticPaths() {
@@ -77,12 +78,27 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
         {post.data.description}
       </p>
 
-      <!-- Tags Row -->
-      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-200 dark:border-zinc-800/60">
-        <span class="text-xs font-mono text-zinc-500">Filed under:</span>
-        {post.data.tags.map((tag: string) => (
-          <span class="tech-pill text-xs">{tag}</span>
-        ))}
+      <!-- Tags & External Link Row -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-zinc-200 dark:border-zinc-800/60">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-mono text-zinc-500">Filed under:</span>
+          {post.data.tags.map((tag: string) => (
+            <span class="tech-pill text-xs">{tag}</span>
+          ))}
+        </div>
+
+        {post.data.linkedInUrl && (
+          <a
+            href={post.data.linkedInUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-medium bg-[#0a66c2]/10 hover:bg-[#0a66c2]/20 text-[#0a66c2] dark:text-[#70b5f9] border border-[#0a66c2]/30 dark:border-[#0a66c2]/40 transition-all shadow-xs group"
+            title="Read and join the discussion on LinkedIn Pulse"
+          >
+            <Linkedin class="w-3.5 h-3.5 text-[#0a66c2] dark:text-[#70b5f9] group-hover:scale-110 transition-transform" />
+            <span>Published on LinkedIn Pulse ↗</span>
+          </a>
+        )}
       </div>
     </div>
   </header>
@@ -143,7 +159,7 @@ const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
             <div class="font-mono text-zinc-500 uppercase tracking-wider text-[10px]">Author &amp; Architect</div>
             <div class="font-bold text-zinc-900 dark:text-zinc-100">Sabarish Kamaraju</div>
             <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-[11px]">
-              Enterprise Mobility Architect specializing in SAP Service &amp; Asset Manager (SSAM), S/4HANA migrations, and field workforce solutions for global utilities.
+              Enterprise Solutions Architect specializing in SAP Service &amp; Asset Manager (SSAM), S/4HANA migrations, and field workforce solutions for global utilities.
             </p>
             <div class="pt-2 border-t border-zinc-200 dark:border-zinc-800/60">
               <a
