@@ -223,3 +223,296 @@
     linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
 }
+
+/* ==========================================================================
+   Blog & Prose Typography Theme Styles (Light & Dark)
+   ========================================================================== */
+#article-content {
+  color: #3f3f46;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.dark #article-content {
+  color: #d4d4d8;
+}
+
+#article-content p {
+  color: #3f3f46;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.dark #article-content p {
+  color: #d4d4d8;
+}
+
+#article-content strong,
+#article-content b {
+  color: #18181b !important;
+  font-weight: 700;
+}
+
+.dark #article-content strong,
+.dark #article-content b {
+  color: #fafafa !important;
+}
+
+#article-content h1,
+#article-content h2,
+#article-content h3,
+#article-content h4 {
+  font-family: 'Geist Sans', 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+#article-content h1 {
+  color: #18181b;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dark #article-content h1 {
+  color: #ffffff;
+}
+
+#article-content h2 {
+  color: #18181b;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-bottom: 1px solid #e4e4e7;
+  padding-bottom: 0.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.dark #article-content h2 {
+  color: #fafafa;
+  border-bottom-color: #27272a;
+}
+
+#article-content h3 {
+  color: #27272a;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.dark #article-content h3 {
+  color: #f4f4f5;
+}
+
+#article-content h4 {
+  color: #27272a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dark #article-content h4 {
+  color: #f4f4f5;
+}
+
+#article-content a {
+  color: #059669;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+#article-content a:hover {
+  color: #047857;
+}
+
+.dark #article-content a {
+  color: #34d399;
+}
+
+.dark #article-content a:hover {
+  color: #6ee7b7;
+}
+
+/* Inline Code */
+#article-content :not(pre) > code {
+  color: #065f46 !important;
+  background-color: #f4f4f5 !important;
+  border: 1px solid #e4e4e7 !important;
+  padding: 0.15rem 0.4rem !important;
+  border-radius: 0.375rem !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85em !important;
+  font-weight: 500 !important;
+}
+
+.dark #article-content :not(pre) > code {
+  color: #a7f3d0 !important;
+  background-color: rgba(39, 39, 42, 0.7) !important;
+  border-color: rgba(63, 63, 70, 0.6) !important;
+}
+
+/* Code Blocks */
+#article-content pre {
+  background-color: #121215 !important;
+  border: 1px solid rgba(39, 39, 42, 0.8) !important;
+  border-radius: 0.75rem !important;
+  padding: 1.25rem !important;
+  color: #e4e4e7 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.15);
+  overflow-x: auto;
+}
+
+#article-content pre code {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Blockquote */
+#article-content blockquote {
+  border-left: 3px solid #10b981;
+  background-color: #f4f4f5;
+  color: #52525b;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: 1.5rem 0;
+  font-style: normal;
+}
+
+.dark #article-content blockquote {
+  background-color: rgba(24, 24, 27, 0.6);
+  color: #a1a1aa;
+}
+
+/* Lists */
+#article-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#article-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#article-content li {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+  color: #3f3f46;
+}
+
+.dark #article-content li {
+  color: #d4d4d8;
+}
+
+/* Tables */
+#article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+  border: 1px solid #e4e4e7;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.dark #article-content table {
+  border-color: #27272a;
+}
+
+#article-content thead {
+  background-color: #f4f4f5;
+  border-bottom: 2px solid #e4e4e7;
+}
+
+.dark #article-content thead {
+  background-color: rgba(24, 24, 27, 0.8);
+  border-bottom-color: #3f3f46;
+}
+
+#article-content th {
+  color: #18181b;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+}
+
+.dark #article-content th {
+  color: #fafafa;
+}
+
+#article-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e4e4e7;
+  color: #3f3f46;
+}
+
+.dark #article-content td {
+  border-bottom-color: #27272a;
+  color: #d4d4d8;
+}
+
+#article-content tr:hover td {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.dark #article-content tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Horizontal Rule */
+#article-content hr {
+  border: 0;
+  border-top: 1px solid #e4e4e7;
+  margin: 2.5rem 0;
+}
+
+.dark #article-content hr {
+  border-top-color: #27272a;
+}
+
+/* Table of Contents Link States */
+.toc-link {
+  color: #52525b;
+  transition: all 0.15s ease;
+}
+
+.dark .toc-link {
+  color: #a1a1aa;
+}
+
+.toc-link:hover {
+  color: #059669;
+  background-color: #f4f4f5;
+}
+
+.dark .toc-link:hover {
+  color: #34d399;
+  background-color: rgba(39, 39, 42, 0.5);
+}
+
+.toc-link.toc-active {
+  color: #065f46 !important;
+  background-color: #ecfdf5 !important;
+  font-weight: 600 !important;
+  border-left: 2px solid #10b981 !important;
+  padding-left: 0.5rem !important;
+}
+
+.dark .toc-link.toc-active {
+  color: #34d399 !important;
+  background-color: rgba(6, 78, 59, 0.3) !important;
+  border-left: 2px solid #34d399 !important;
+}

@@ -225,17 +225,20 @@ const nonTechnicalCount = sortedPosts.filter((p: { data: { category: string } })
       }
     }
 
+    const activeClasses = ['bg-white', 'dark:bg-zinc-800', 'text-zinc-900', 'dark:text-white', 'shadow-sm', 'border', 'border-zinc-200', 'dark:border-zinc-700/60'];
+    const inactiveClasses = ['text-zinc-600', 'dark:text-zinc-400'];
+
     tabs.forEach((tab) => {
       tab.onclick = () => {
         activeCategory = tab.dataset.category || 'all';
 
-        // Update styling
+        // Update styling cleanly for both light & dark themes
         tabs.forEach((t) => {
-          t.classList.remove('bg-zinc-800', 'text-white', 'shadow-sm', 'border', 'border-zinc-700/60');
-          t.classList.add('text-zinc-400');
+          t.classList.remove(...activeClasses);
+          t.classList.add(...inactiveClasses);
         });
-        tab.classList.add('bg-zinc-800', 'text-white', 'shadow-sm', 'border', 'border-zinc-700/60');
-        tab.classList.remove('text-zinc-400');
+        tab.classList.remove(...inactiveClasses);
+        tab.classList.add(...activeClasses);
 
         filterPosts();
       };
