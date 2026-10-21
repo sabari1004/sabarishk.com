@@ -243,15 +243,15 @@ import {
               </a>
 
               <a
-                href="https://github.com/sabari101"
+                href="https://github.com/sabari1004"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-between p-3 rounded-lg bg-zinc-950/60 border border-zinc-800 hover:border-emerald-500/50 text-zinc-300 hover:text-white transition-all group"
-                title="GitHub: sabari101"
+                title="GitHub: sabari1004"
               >
                 <div class="flex items-center gap-2.5">
                   <Github class="w-4 h-4 text-emerald-400" />
-                  <span>GitHub Repositories (@sabari101)</span>
+                  <span>GitHub Repositories (@sabari1004)</span>
                 </div>
                 <ExternalLink class="w-3.5 h-3.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
               </a>
@@ -328,7 +328,7 @@ import {
 
     if (!form || !submitBtn) return;
 
-    form.addEventListener('submit', async (e) => {
+    form.onsubmit = async (e) => {
       e.preventDefault();
 
       // UI Loading state
@@ -377,17 +377,17 @@ import {
         submitBtn.disabled = false;
         if (btnText) btnText.textContent = 'Transmit Advisory Inquiry';
       }
-    });
+    };
 
     if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
+      resetBtn.onclick = () => {
         form.reset();
         successPanel?.classList.add('hidden');
         form.classList.remove('hidden');
-      });
+      };
     }
   }
 
-  setupContactForm();
+  // Idempotent page-load execution
   document.addEventListener('astro:page-load', setupContactForm);
 </script>

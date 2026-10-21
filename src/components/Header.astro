@@ -25,10 +25,10 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-800/80 transition-colors">
+<header id="site-header" class="sticky top-0 z-50 w-full backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-800/80 transition-colors" style="view-transition-name: site-header;">
   <div class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
     <!-- Brand Monogram & Title -->
-    <a href="/" class="group flex items-center gap-3 transition-transform focus:outline-none">
+    <a href="/" data-astro-prefetch="hover" class="group flex items-center gap-3 transition-transform focus:outline-none">
       <div class="relative flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 border border-zinc-700/80 shadow-inner group-hover:border-emerald-500/60 group-hover:shadow-[0_0_12px_rgba(16,185,129,0.3)] transition-all">
         <span class="font-mono text-xs font-bold tracking-tight text-emerald-400 group-hover:text-emerald-300">SK</span>
         <div class="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
@@ -50,8 +50,9 @@ const isActive = (href: string) => {
         return (
           <a
             href={link.href}
+            data-astro-prefetch="hover"
             class:list={[
-              'relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 focus:outline-none',
+              'relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-150 focus:outline-none',
               active
                 ? 'bg-zinc-800/90 text-white font-semibold border border-zinc-700/80 shadow-sm'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
@@ -87,7 +88,7 @@ const isActive = (href: string) => {
 
       <!-- GitHub Button -->
       <a
-        href="https://github.com/sabari101"
+        href="https://github.com/sabari1004"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub Profile"
@@ -100,6 +101,7 @@ const isActive = (href: string) => {
       <!-- Connect CTA -->
       <a
         href="/contact"
+        data-astro-prefetch="hover"
         class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-zinc-200 rounded-lg bg-zinc-900 border border-zinc-700/80 hover:border-emerald-500/50 hover:text-white hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all ml-1"
       >
         <span>Connect</span>
@@ -138,6 +140,7 @@ const isActive = (href: string) => {
         return (
           <a
             href={link.href}
+            data-astro-prefetch="hover"
             class:list={[
               'flex items-center justify-between py-2 px-3 rounded-lg text-sm font-medium transition-colors',
               active
@@ -165,7 +168,7 @@ const isActive = (href: string) => {
             <span>LinkedIn</span>
           </a>
           <a
-            href="https://github.com/sabari101"
+            href="https://github.com/sabari1004"
             target="_blank"
             rel="noopener noreferrer"
             class="flex items-center gap-1.5 text-xs text-zinc-300 hover:text-emerald-400"
@@ -179,6 +182,7 @@ const isActive = (href: string) => {
       <div class="pt-2 flex flex-col gap-2">
         <a
           href="/contact"
+          data-astro-prefetch="hover"
           class="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all"
         >
           <span>Schedule Architecture Consultation</span>
@@ -198,7 +202,7 @@ const isActive = (href: string) => {
 
     if (!toggle || !drawer) return;
 
-    toggle.addEventListener('click', () => {
+    toggle.onclick = () => {
       const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', (!isExpanded).toString());
       drawer.classList.toggle('hidden');
@@ -206,23 +210,22 @@ const isActive = (href: string) => {
         openIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
       }
-    });
+    };
 
     // Close on link click
     const drawerLinks = drawer.querySelectorAll('a');
     drawerLinks.forEach((link) => {
-      link.addEventListener('click', () => {
+      link.onclick = () => {
         drawer.classList.add('hidden');
         toggle.setAttribute('aria-expanded', 'false');
         if (openIcon && closeIcon) {
           openIcon.classList.remove('hidden');
           closeIcon.classList.add('hidden');
         }
-      });
+      };
     });
   }
 
-  // Support Astro ClientRouter page transitions
-  setupMobileNav();
+  // Idempotent page-load execution
   document.addEventListener('astro:page-load', setupMobileNav);
 </script>

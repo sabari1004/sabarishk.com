@@ -12,6 +12,8 @@ import { ArrowUp } from 'lucide-astro';
 </button>
 
 <script>
+  let scrollHandlerAttached = false;
+
   function setupBackToTop() {
     const btn = document.getElementById('back-to-top');
     if (!btn) return;
@@ -26,17 +28,20 @@ import { ArrowUp } from 'lucide-astro';
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    if (!scrollHandlerAttached) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      scrollHandlerAttached = true;
+    }
     handleScroll();
 
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       });
-    });
+    };
   }
 
-  setupBackToTop();
+  // Idempotent page-load execution
   document.addEventListener('astro:page-load', setupBackToTop);
 </script>

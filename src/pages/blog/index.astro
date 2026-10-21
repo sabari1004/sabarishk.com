@@ -225,7 +225,7 @@ const nonTechnicalCount = sortedPosts.filter((p: { data: { category: string } })
     }
 
     tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
+      tab.onclick = () => {
         activeCategory = tab.dataset.category || 'all';
 
         // Update styling
@@ -237,27 +237,27 @@ const nonTechnicalCount = sortedPosts.filter((p: { data: { category: string } })
         tab.classList.remove('text-zinc-400');
 
         filterPosts();
-      });
+      };
     });
 
     if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
+      searchInput.oninput = (e) => {
         searchQuery = (e.target as HTMLInputElement).value.trim().toLowerCase();
         filterPosts();
-      });
+      };
     }
 
     if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
+      resetBtn.onclick = () => {
         if (searchInput) searchInput.value = '';
         searchQuery = '';
         activeCategory = 'all';
         tabs[0]?.click();
         filterPosts();
-      });
+      };
     }
   }
 
-  setupBlogFilters();
+  // Idempotent page-load execution
   document.addEventListener('astro:page-load', setupBlogFilters);
 </script>

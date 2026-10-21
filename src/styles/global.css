@@ -16,8 +16,21 @@
     background-color: var(--bg-base);
     color: #f4f4f5;
     font-family: 'Geist', 'Inter', system-ui, sans-serif;
-    scroll-behavior: smooth;
     color-scheme: dark;
+  }
+
+  /* Instantaneous, crisp view transitions without sluggishness or ghosting */
+  ::view-transition-old(site-header),
+  ::view-transition-new(site-header) {
+    animation: none !important;
+  }
+
+  ::view-transition-old(root) {
+    animation-duration: 80ms !important;
+  }
+
+  ::view-transition-new(root) {
+    animation-duration: 80ms !important;
   }
 
   body {
