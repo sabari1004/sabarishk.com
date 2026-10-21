@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CapabilitiesGrid from '../components/CapabilitiesGrid.astro';
 import Timeline from '../components/Timeline.astro';
+import FeaturedSolution from '../components/FeaturedSolution.astro';
 import { getCollection } from 'astro:content';
 import { 
   ArrowRight, 
@@ -48,13 +49,23 @@ const certifications = [
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-start">
         <!-- Left Hero Column (Headline, Metrics, CTAs) -->
         <div class="lg:col-span-7 space-y-7">
-          <!-- Pulsing Status Badge -->
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-zinc-900/90 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)] text-xs font-mono text-emerald-700 dark:text-emerald-400">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span class="font-medium">Advising Utilities &amp; Enterprise Asset Management</span>
+          <!-- Status Badges -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-zinc-900/90 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)] text-xs font-mono text-emerald-700 dark:text-emerald-400">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span class="font-medium">Advising Utilities &amp; Enterprise Asset Management</span>
+            </div>
+            <a 
+              href="#featured-solution" 
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-400/40 text-xs font-mono text-cyan-700 dark:text-cyan-300 hover:border-cyan-500/60 transition-all shadow-[0_0_15px_rgba(6,182,212,0.15)] group"
+            >
+              <span class="flex h-1.5 w-1.5 rounded-full bg-cyan-500"></span>
+              <span class="font-medium">Creator: Custom Offline-First Field Service &amp; S/4HANA Scheduling Engine</span>
+              <span class="text-cyan-600 dark:text-cyan-400 group-hover:translate-x-0.5 transition-transform">→</span>
+            </a>
           </div>
 
           <!-- Name & Title / Headline -->
@@ -71,7 +82,7 @@ const certifications = [
               </span>
             </h1>
             <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
-              13+ years architecting mission-critical field workforce mobile solutions, S/4HANA EAM Phase Model governance, resource scheduling (MRS &amp; RSH), and offline-first mobile applications across major global energy and utility enterprises.
+              13+ years architecting mission-critical field workforce mobile solutions, S/4HANA EAM Phase Model governance, resource scheduling (MRS &amp; RSH), and offline-first mobile applications across major global energy and utility enterprises. Not only certified in SAP standard frameworks (SSAM/MDK/BTP), but actively architecting custom offline-native mobile clients and dispatch scheduling engines deeply integrated with SAP S/4HANA enterprise backends.
             </p>
           </div>
 
@@ -97,13 +108,16 @@ const certifications = [
 
           <!-- Primary & Social CTAs -->
           <div class="flex flex-wrap items-center gap-3 pt-1">
-            <a href="#capabilities" class="btn-primary">
-              <span>Explore Architectural Capabilities</span>
+            <a href="#featured-solution" class="btn-primary">
+              <span>View Featured Innovation</span>
               <ArrowRight class="w-4 h-4" />
+            </a>
+            <a href="#capabilities" class="btn-secondary">
+              <span>Explore Capabilities</span>
             </a>
             <a href="/blog" data-astro-prefetch="hover" class="btn-secondary">
               <BookOpen class="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
-              <span>Read Field Architecture Blog</span>
+              <span>Read Architecture Blog</span>
             </a>
             <a 
               href="https://www.linkedin.com/in/sabarish-k-6b979918/" 
@@ -184,6 +198,9 @@ const certifications = [
       </div>
     </div>
   </section>
+
+  <!-- Featured Innovation / Engineering Lab Showcase -->
+  <FeaturedSolution />
 
   <!-- Core Capabilities Section (Anchored with id="capabilities") -->
   <section id="capabilities" class="py-20 border-t border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/60 dark:bg-zinc-950/60 relative scroll-mt-16">

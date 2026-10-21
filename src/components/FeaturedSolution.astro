@@ -1,0 +1,319 @@
+---
+import { 
+  Smartphone, 
+  Calendar, 
+  Database, 
+  ArrowRight, 
+  CheckCircle2, 
+  Cpu, 
+  BookOpen
+} from './icons';
+---
+
+<section id="featured-solution" class="py-20 md:py-24 border-t border-zinc-200 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-950/80 relative overflow-hidden transition-colors scroll-mt-16">
+  <!-- Ambient background glow accents -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-teal-500/5 blur-3xl opacity-60 dark:opacity-40 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 relative z-10">
+    <!-- Header Badge & Title Strip -->
+    <div class="max-w-3xl mb-14 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-400/40 text-xs font-mono text-cyan-800 dark:text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+        <Cpu class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
+        <span class="font-semibold tracking-wide uppercase">Featured Innovation • Engineering Lab</span>
+      </div>
+
+      <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.15]">
+        Custom Field Mobility &amp; Scheduling Platform for SAP S/4HANA
+      </h2>
+
+      <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
+        A bespoke, offline-first mobile field application paired with an interactive real-time Gantt scheduling console—engineered from the ground up as a high-velocity, lightweight companion and alternative to monolithic SAP SSAM and SAP MRS/RSH stacks.
+      </p>
+
+      <!-- Key Performance Highlights Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 font-mono text-xs">
+        <div class="p-3 rounded-lg bg-white/80 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 shadow-xs">
+          <div class="text-lg font-bold text-emerald-600 dark:text-emerald-400">&lt; 100ms</div>
+          <div class="text-zinc-500 text-[11px]">Local Write Latency</div>
+        </div>
+        <div class="p-3 rounded-lg bg-white/80 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 shadow-xs">
+          <div class="text-lg font-bold text-cyan-600 dark:text-cyan-400">100% Offline</div>
+          <div class="text-zinc-500 text-[11px]">Field Autonomy</div>
+        </div>
+        <div class="p-3 rounded-lg bg-white/80 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 shadow-xs">
+          <div class="text-lg font-bold text-zinc-900 dark:text-zinc-100">&lt; 25 MB</div>
+          <div class="text-zinc-500 text-[11px]">Client Binary Size</div>
+        </div>
+        <div class="p-3 rounded-lg bg-white/80 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 shadow-xs">
+          <div class="text-lg font-bold text-emerald-600 dark:text-emerald-400">Clean Core</div>
+          <div class="text-zinc-500 text-[11px]">S/4HANA PM &amp; CS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Core Architecture Pillars Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+      <!-- Pillar 1: Field Mobile Application -->
+      <div class="card-surface card-glow-hover rounded-2xl p-6 sm:p-7 border border-zinc-200 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/50 flex flex-col justify-between group shadow-sm transition-all hover:border-emerald-500/50">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-600 dark:text-emerald-400">
+              <Smartphone class="w-6 h-6" />
+            </div>
+            <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
+              SSAM Companion / Alt
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              The Field Mobile Client
+            </h3>
+            <p class="text-xs font-mono text-zinc-500 mt-0.5">Offline-Native Work Order Execution</p>
+          </div>
+
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Engineered for lineworkers and technicians operating in zero-connectivity environments. Built on an encrypted local persistence layer with non-blocking delta synchronization, deterministic conflict resolution, and immediate local write guarantees.
+          </p>
+
+          <div class="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800/60 text-xs">
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              <span><strong>Execution Lifecycles:</strong> Work orders, operations, status changes, and technician reassignment.</span>
+            </div>
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              <span><strong>Field Confirmations:</strong> Direct CATS labor time recording and measurement readings (IMRG).</span>
+            </div>
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              <span><strong>Inspection Checklists:</strong> Dynamic safety forms, JSA verifications, and photo attachments.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5 mt-5 border-t border-zinc-200 dark:border-zinc-800/60">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill text-[10px]">Native Mobile</span>
+            <span class="tech-pill text-[10px]">Encrypted SQLite</span>
+            <span class="tech-pill text-[10px]">Delta Sync</span>
+            <span class="tech-pill text-[10px]">CATS Labor</span>
+            <span class="tech-pill text-[10px]">Offline-First</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 2: Dispatch & Gantt Scheduling Engine -->
+      <div class="card-surface card-glow-hover rounded-2xl p-6 sm:p-7 border border-zinc-200 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/50 flex flex-col justify-between group shadow-sm transition-all hover:border-cyan-500/50">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="p-3 rounded-xl bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400">
+              <Calendar class="w-6 h-6" />
+            </div>
+            <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/50">
+              MRS / RSH Companion / Alt
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+              Dispatch &amp; Scheduling Engine
+            </h3>
+            <p class="text-xs font-mono text-zinc-500 mt-0.5">Interactive Reactive Gantt Console</p>
+          </div>
+
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            A high-performance visual dispatch board for maintenance supervisors and dispatch coordinators. Replaces cumbersome legacy planning tables with responsive drag-and-drop crew leveling, capacity calculations, and live field status tracking.
+          </p>
+
+          <div class="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800/60 text-xs">
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+              <span><strong>Visual Gantt Scheduling:</strong> Drag-and-drop operations across crew timelines, shifts, and dates.</span>
+            </div>
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+              <span><strong>Live Status Back-Propagation:</strong> Dispatched → En Route → On-Site → Completed live updates.</span>
+            </div>
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
+              <span><strong>Work Center Leveling:</strong> Instant overload alerts with dynamic shift capacity rebalancing.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5 mt-5 border-t border-zinc-200 dark:border-zinc-800/60">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill text-[10px]">Reactive Gantt</span>
+            <span class="tech-pill text-[10px]">Real-Time Dispatch</span>
+            <span class="tech-pill text-[10px]">Crew Leveling</span>
+            <span class="tech-pill text-[10px]">Shift Planning</span>
+            <span class="tech-pill text-[10px]">Live Telemetry</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 3: S/4HANA Integration Layer -->
+      <div class="card-surface card-glow-hover rounded-2xl p-6 sm:p-7 border border-zinc-200 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/50 flex flex-col justify-between group shadow-sm transition-all hover:border-emerald-500/50">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="p-3 rounded-xl bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800/60 text-teal-600 dark:text-teal-400">
+              <Database class="w-6 h-6" />
+            </div>
+            <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-400 border border-teal-200 dark:border-teal-800/50">
+              Clean Core Architecture
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+              S/4HANA Enterprise Gateway
+            </h3>
+            <p class="text-xs font-mono text-zinc-500 mt-0.5">High-Throughput Clean Core Integration</p>
+          </div>
+
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            A resilient, decoupled communication layer connecting front-end applications to SAP S/4HANA Plant Maintenance (PM) and Customer Service (CS). Built without core modifications, using standardized BAPIs, OData services, and transactional safety queues.
+          </p>
+
+          <div class="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800/60 text-xs">
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
+              <span><strong>SAP PM/CS Objects:</strong> Maintenance Orders, Operations, Equipment, FLOCs, and Long Texts.</span>
+            </div>
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
+              <span><strong>Inventory &amp; MIGO:</strong> Reservation staging, goods issue confirmations, and stock availability checks.</span>
+            </div>
+            <div class="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+              <CheckCircle2 class="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
+              <span><strong>Resilient Queue:</strong> Guaranteed at-least-once message delivery with automated retry &amp; error triage.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5 mt-5 border-t border-zinc-200 dark:border-zinc-800/60">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tech-pill text-[10px]">S/4HANA PM &amp; CS</span>
+            <span class="tech-pill text-[10px]">OData / REST</span>
+            <span class="tech-pill text-[10px]">BAPI Handlers</span>
+            <span class="tech-pill text-[10px]">Transactional Queue</span>
+            <span class="tech-pill text-[10px]">OAuth2 / SAML</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architectural Topology Diagram Card -->
+    <div class="card-surface rounded-2xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 mb-12 shadow-sm space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800/70 pb-3">
+        <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-semibold">
+          <Cpu class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          <span>System Topology: Decoupled Multi-Tier Architecture</span>
+        </div>
+        <span class="text-[11px] font-mono text-zinc-500">Sub-Second Sync Flow</span>
+      </div>
+
+      <div class="overflow-x-auto text-[11px] sm:text-xs font-mono leading-relaxed text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-950 p-4 sm:p-5 rounded-xl border border-zinc-200 dark:border-zinc-800/60">
+        <pre class="bg-transparent p-0 m-0 border-none">
+┌───────────────────────────────────────┐        ┌───────────────────────────────────────┐
+│       Field Mobile Application        │        │      Dispatch &amp; Scheduling Engine     │
+│       (Offline Encrypted SQLite)      │        │       (Real-Time Gantt Console)       │
+│ • Local writes, JSA safety checklists │        │ • Drag-and-drop crew leveling         │
+│ • CATS labor times &amp; readings (IMRG)  │        │ • Live status back-propagation        │
+└───────────────────┬───────────────────┘        └───────────────────┬───────────────────┘
+                    │ HTTPS Delta Sync                               │ WebSocket / REST
+                    ▼                                                ▼
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                      Enterprise Integration &amp; Orchestration Gateway                    │
+│   ┌───────────────────────────┐  ┌─────────────────────────┐  ┌────────────────────┐   │
+│   │ Resilient Offline Sync Q  │  │ Transactional BAPI Pool │  │ Auth / RBAC Broker │   │
+│   └───────────────────────────┘  └─────────────────────────┘  └────────────────────┘   │
+└───────────────────────────────────────────┬────────────────────────────────────────────┘
+                                            │ Principal Propagation / RFC / mTLS
+                                            ▼
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                               SAP S/4HANA Enterprise Core                              │
+│   ┌───────────────────────────┐  ┌─────────────────────────┐  ┌────────────────────┐   │
+│   │ Plant Maintenance (PM)    │  │ Customer Service (CS)   │  │ CATS / HR / MIGO   │   │
+│   │ Orders, Operations, FLOCs │  │ Service Orders &amp; Items │  │ Time &amp; Inventory   │   │
+│   └───────────────────────────┘  └─────────────────────────┘  └────────────────────┘   │
+└────────────────────────────────────────────────────────────────────────────────────────┘</pre>
+      </div>
+    </div>
+
+    <!-- Architectural Contrast Matrix (Table) -->
+    <div class="card-surface rounded-2xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 shadow-sm space-y-5">
+      <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800/70 pb-3">
+        <div class="space-y-0.5">
+          <h3 class="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">
+            Architecture Comparison: Standard Enterprise vs. Custom Velocity Engine
+          </h3>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400">
+            Comparing standard out-of-the-box suites with a tailored, decoupled architecture.
+          </p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="border-b border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-200 font-mono uppercase text-[11px]">
+              <th class="py-3 px-4 font-semibold">Architectural Vector</th>
+              <th class="py-3 px-4 font-semibold text-zinc-500">Standard Suite (SSAM + MRS/RSH)</th>
+              <th class="py-3 px-4 font-semibold text-emerald-600 dark:text-emerald-400">Custom High-Velocity Engine</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800/60 font-mono text-[12px]">
+            <tr>
+              <td class="py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Client Runtime Footprint</td>
+              <td class="py-3 px-4 text-zinc-600 dark:text-zinc-400">Heavy multi-engine MDK/Agentry runtime (80–150 MB binary)</td>
+              <td class="py-3 px-4 text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/5">Sub-25 MB lightweight optimized native/cross-platform binary</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Sync &amp; Write Latency</td>
+              <td class="py-3 px-4 text-zinc-600 dark:text-zinc-400">30–90 second blocking delta queues; heavy OData payload sets</td>
+              <td class="py-3 px-4 text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/5">&lt; 100ms local commit; non-blocking background delta sync</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Scheduling Board Agility</td>
+              <td class="py-3 px-4 text-zinc-600 dark:text-zinc-400">Complex SAP GUI / Fiori launchpad with high load times</td>
+              <td class="py-3 px-4 text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/5">Reactive web Gantt board with instant drag-and-drop &amp; live field updates</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Clean Core Compliance</td>
+              <td class="py-3 px-4 text-zinc-600 dark:text-zinc-400">Tightly coupled to standard MAIF add-ons &amp; BTP Mobile Services</td>
+              <td class="py-3 px-4 text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/5">100% decoupled via standard BAPIs/OData; zero core ERP modifications</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">Licensing &amp; Seat Footprint</td>
+              <td class="py-3 px-4 text-zinc-600 dark:text-zinc-400">High named-user licensing overhead for non-desk utility crews</td>
+              <td class="py-3 px-4 text-emerald-700 dark:text-emerald-300 font-semibold bg-emerald-500/5">Flexible seat scaling for broad field workforce &amp; subcontractors</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Action CTAs -->
+      <div class="pt-4 border-t border-zinc-200 dark:border-zinc-800/60 flex flex-wrap items-center justify-between gap-4">
+        <a 
+          href="/blog/custom-s4hana-field-mobility-and-scheduling/"
+          data-astro-prefetch="hover"
+          class="inline-flex items-center gap-2 text-xs font-semibold font-mono text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+        >
+          <BookOpen class="w-4 h-4" />
+          <span>Read the Deep-Dive Architecture Article (Code, Schemas &amp; Trade-offs) →</span>
+        </a>
+
+        <a 
+          href="/contact" 
+          data-astro-prefetch="hover" 
+          class="btn-primary text-xs"
+        >
+          <span>Schedule Technical Walkthrough</span>
+          <ArrowRight class="w-3.5 h-3.5" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

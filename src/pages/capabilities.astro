@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedSolution from '../components/FeaturedSolution.astro';
 import { 
   Smartphone, 
   Database, 
@@ -200,6 +201,13 @@ const capabilitiesCatalog = [
 
       <!-- Quick Jump Pills -->
       <div class="flex flex-wrap gap-2 pt-6">
+        <a
+          href="#featured-solution"
+          class="px-3 py-1 rounded-lg text-xs font-mono bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-300 dark:border-cyan-800 text-cyan-800 dark:text-cyan-300 hover:text-cyan-600 dark:hover:text-cyan-200 shadow-xs transition-all font-semibold flex items-center gap-1.5"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+          #featured-solution
+        </a>
         {capabilitiesCatalog.map((item) => (
           <a
             href={`#${item.id}`}
@@ -211,6 +219,9 @@ const capabilitiesCatalog = [
       </div>
     </div>
   </section>
+
+  <!-- Featured Solution Showcase Section -->
+  <FeaturedSolution />
 
   <!-- Deep Dive Sections -->
   <div class="container mx-auto px-4 sm:px-6 py-16 space-y-20">
