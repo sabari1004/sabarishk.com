@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { Search, BookOpen, Calendar, Clock, ArrowRight } from 'lucide-astro';
+
+const posts = await getCollection('blog', ({ data }: { data: { draft: boolean } }) => !data.draft);
+const sortedPosts = posts.sort(
+  (a: { data: { pubDate: Date } }, b: { data: { pubDate: Date } }) => 
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+const technicalCount = sortedPosts.filter((p: { data: { category: string } }) => p.data.category === 'technical').length;
+const nonTechnicalCount = sortedPosts.filter((p: { data: { category: string } }) => p.data.category === 'non-technical').length;
+---
+
+<BaseLayout
+  title="Writing & Perspectives | Sabarish K"
+  description="Dual-track publication on enterprise systems architecture, distributed engineering pipelines, org design, and engineering leadership."
+>
+  <!-- Page Header -->
+  <section class="pt-16 pb-12 md:pt-20 md:pb-16 border-b border-zinc-800/80 bg-zinc-950/70 relative">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-800/40 text-xs font-mono text-emerald-400">
+          <BookOpen class="w-3.5 h-3.5" />
+          <span>Dual-Track Engineering Publications</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          Technical &amp; Strategic Perspectives
+        </h1>
+        <p class="text-base sm:text-lg text-zinc-400 leading-relaxed font-normal">
+          Essays, architectural retrospectives, and deep technical breakdowns spanning distributed cloud backbones to organizational leadership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Controls & Search Bar -->
+  <section class="py-8 border-b border-zinc-800/80 bg-zinc-900/30 sticky top-16 z-30 backdrop-blur-xl">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <!-- Category Tabs -->
+        <div class="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-950 border border-zinc-800 max-w-fit">
+          <button
+            type="button"
+            data-category="all"
+            class="filter-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all bg-zinc-800 text-white shadow-sm border border-zinc-700/60"
+          >
+            <span>All Articles</span>
+            <span class="ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-mono bg-zinc-700 text-zinc-200">
+              {sortedPosts.length}
+            </span>
+          </button>
+          <button
+            type="button"
+            data-category="technical"
+            class="filter-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-zinc-400 hover:text-zinc-200 transition-all"
+          >
+            <span>Technical</span>
+            <span class="ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/50">
+              {technicalCount}
+            </span>
+          </button>
+          <button
+            type="button"
+            data-category="non-technical"
+            class="filter-tab-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-zinc-400 hover:text-zinc-200 transition-all"
+          >
+            <span>Non-Technical / Org</span>
+            <span class="ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-mono bg-violet-950 text-violet-400 border border-violet-800/50">
+              {nonTechnicalCount}
+            </span>
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full md:w-80">
+          <Search class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
+          <input
+            id="blog-search-input"
+            type="text"
+            placeholder="Search by title, topic, or tag..."
+            class="w-full pl-10 pr-4 py-2 text-xs rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/40 transition-colors"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Grid -->
+  <section class="py-12 flex-grow">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div id="no-results-msg" class="hidden py-16 text-center space-y-4">
+        <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400">
+          <Search class="w-6 h-6" />
+        </div>
+        <h3 class="text-base font-semibold text-zinc-200">No matching articles found</h3>
+        <p class="text-xs text-zinc-500 max-w-sm mx-auto">
+          Try adjusting your search terms or clearing active filters to browse the catalog.
+        </p>
+        <button
+          id="reset-search-btn"
+          type="button"
+          class="btn-secondary text-xs px-3 py-1.5"
+        >
+          Reset Filters
+        </button>
+      </div>
+
+      <div id="articles-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {sortedPosts.map((post) => (
+          <article
+            class="article-card card-surface card-glow-hover rounded-xl p-6 border border-zinc-800/80 bg-zinc-900/30 flex flex-col justify-between group"
+            data-category={post.data.category}
+            data-title={post.data.title.toLowerCase()}
+            data-description={post.data.description.toLowerCase()}
+            data-tags={post.data.tags.join(' ').toLowerCase()}
+          >
+            <div>
+              <!-- Top Metadata Strip -->
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class:list={[
+                  'px-2.5 py-0.5 rounded text-[10px] font-mono font-semibold uppercase tracking-wider',
+                  post.data.category === 'technical'
+                    ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/40'
+                    : 'bg-violet-950/60 text-violet-400 border border-violet-800/40'
+                ]}>
+                  {post.data.category}
+                </span>
+
+                <div class="flex items-center gap-2 text-[11px] font-mono text-zinc-500">
+                  <div class="flex items-center gap-1">
+                    <Calendar class="w-3 h-3 text-zinc-500" />
+                    <span>{new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  </div>
+                  {post.data.readingTime && (
+                    <>
+                      <span>•</span>
+                      <div class="flex items-center gap-1">
+                        <Clock class="w-3 h-3 text-zinc-500" />
+                        <span>{post.data.readingTime}</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              <!-- Title -->
+              <h2 class="text-xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors mb-3">
+                <a href={`/blog/${post.id}/`} class="focus:outline-none">
+                  {post.data.title}
+                </a>
+              </h2>
+
+              <!-- Summary Excerpt -->
+              <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-6">
+                {post.data.description}
+              </p>
+            </div>
+
+            <!-- Footer: Tags & Read Link -->
+            <div class="pt-4 border-t border-zinc-800/70 flex items-center justify-between gap-3">
+              <div class="flex flex-wrap gap-1.5">
+                {post.data.tags.slice(0, 3).map((tag: string) => (
+                  <span class="tech-pill text-[10px]">{tag}</span>
+                ))}
+              </div>
+              <a
+                href={`/blog/${post.id}/`}
+                class="inline-flex items-center gap-1 text-xs font-semibold font-mono text-emerald-400 hover:text-emerald-300 transition-colors shrink-0"
+              >
+                <span>Read Article</span>
+                <ArrowRight class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function setupBlogFilters() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab-btn');
+    const searchInput = document.getElementById('blog-search-input') as HTMLInputElement | null;
+    const cards = document.querySelectorAll<HTMLElement>('.article-card');
+    const noResults = document.getElementById('no-results-msg');
+    const resetBtn = document.getElementById('reset-search-btn');
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function filterPosts() {
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const category = card.dataset.category || '';
+        const title = card.dataset.title || '';
+        const description = card.dataset.description || '';
+        const tags = card.dataset.tags || '';
+
+        const categoryMatches = activeCategory === 'all' || category === activeCategory;
+        const searchMatches =
+          searchQuery === '' ||
+          title.includes(searchQuery) ||
+          description.includes(searchQuery) ||
+          tags.includes(searchQuery);
+
+        if (categoryMatches && searchMatches) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        activeCategory = tab.dataset.category || 'all';
+
+        // Update styling
+        tabs.forEach((t) => {
+          t.classList.remove('bg-zinc-800', 'text-white', 'shadow-sm', 'border', 'border-zinc-700/60');
+          t.classList.add('text-zinc-400');
+        });
+        tab.classList.add('bg-zinc-800', 'text-white', 'shadow-sm', 'border', 'border-zinc-700/60');
+        tab.classList.remove('text-zinc-400');
+
+        filterPosts();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = (e.target as HTMLInputElement).value.trim().toLowerCase();
+        filterPosts();
+      });
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        searchQuery = '';
+        activeCategory = 'all';
+        tabs[0]?.click();
+        filterPosts();
+      });
+    }
+  }
+
+  setupBlogFilters();
+  document.addEventListener('astro:page-load', setupBlogFilters);
+</script>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#09090b"/>
+  <!-- Ambient background glow -->
+  <circle cx="600" cy="150" r="450" fill="#10b981" fill-opacity="0.12" filter="blur(100px)"/>
+  <circle cx="950" cy="400" r="300" fill="#06b6d4" fill-opacity="0.08" filter="blur(90px)"/>
+  
+  <!-- Subtle border -->
+  <rect x="30" y="30" width="1140" height="570" rx="24" stroke="#27272a" stroke-width="2"/>
+  
+  <!-- Brand Badge & Header -->
+  <g transform="translate(90, 85)">
+    <rect width="64" height="64" rx="16" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+    <text x="32" y="42" font-family="monospace" font-size="24" font-weight="bold" fill="#34d399" text-anchor="middle">SK</text>
+  </g>
+  
+  <text x="175" y="125" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700" fill="#f4f4f5">Sabarish Kamaraju</text>
+  <text x="175" y="152" font-family="monospace" font-size="15" fill="#34d399">Enterprise Mobility Architect &amp; SAP Solutions Specialist (13+ Years)</text>
+  
+  <!-- Credential Badges -->
+  <g transform="translate(90, 185)">
+    <rect width="480" height="34" rx="8" fill="#18181b" stroke="#27272a"/>
+    <circle cx="18" cy="17" r="5" fill="#10b981"/>
+    <text x="32" y="22" font-family="monospace" font-size="12" fill="#d4d4d8">SAP Certified Solution Architect (BTP &amp; Business AI)</text>
+  </g>
+  <g transform="translate(590, 185)">
+    <rect width="360" height="34" rx="8" fill="#18181b" stroke="#27272a"/>
+    <circle cx="18" cy="17" r="5" fill="#06b6d4"/>
+    <text x="32" y="22" font-family="monospace" font-size="12" fill="#d4d4d8">SAP Certified Associate (SAP Build)</text>
+  </g>
+
+  <!-- Main Headline -->
+  <text x="90" y="295" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="800" fill="#ffffff">
+    Field Mobility, S/4HANA EAM &amp;
+  </text>
+  <text x="90" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="800" fill="#34d399">
+    SAP Service &amp; Asset Manager (SSAM)
+  </text>
+  
+  <!-- Technical Specialty Pills -->
+  <text x="90" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#a1a1aa">
+    SSAM 2505 • Syclo-Agentry Migrations • Offline OData • Dynamic Forms • Utilities Field Solutions
+  </text>
+  
+  <!-- Footer Tag -->
+  <g transform="translate(90, 495)">
+    <rect width="280" height="42" rx="21" fill="#18181b" stroke="#27272a"/>
+    <circle cx="22" cy="21" r="5" fill="#10b981"/>
+    <text x="38" y="27" font-family="monospace" font-size="15" fill="#34d399">sabarishk.com</text>
+  </g>
+</svg>

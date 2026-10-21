@@ -1,0 +1,87 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+}
+
+const {
+  title = 'Sabarish Kamaraju | Enterprise Mobility Architect & SAP Solutions Specialist',
+  description = 'Enterprise mobility architect with 13+ years specializing in SAP Service & Asset Manager (SSAM), BTP, Syclo-Agentry migrations, and field workforce solutions for global utilities.',
+  image = '/og-image.svg',
+  article = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://sabarishk.com');
+const siteTitle = title.includes('Sabarish Kamaraju') ? title : `${title} | Sabarish Kamaraju`;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" type="application/rss+xml" title="Sabarish K - RSS Feed" href="/rss.xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{siteTitle}</title>
+    <meta name="title" content={siteTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Sabarish Kamaraju" />
+    <meta property="profile:username" content="sabarish-k-6b979918" />
+    <meta property="og:see_also" content="https://www.linkedin.com/in/sabarish-k-6b979918/" />
+    <meta property="og:see_also" content="https://github.com/sabari101" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={siteTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Astro View Transitions -->
+    <ClientRouter />
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 flex flex-col min-h-screen antialiased selection:bg-emerald-500/30 selection:text-white">
+    <!-- Subtle Ambient Glows and Grid -->
+    <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-emerald-500/10 via-cyan-500/5 to-transparent blur-3xl opacity-75"></div>
+      <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <Header currentPath={Astro.url.pathname} />
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-grow flex flex-col">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Floating Back to Top Button -->
+    <BackToTop />
+  </body>
+</html>

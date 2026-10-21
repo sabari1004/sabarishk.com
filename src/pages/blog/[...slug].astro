@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { 
+  Calendar, 
+  Clock, 
+  ArrowLeft, 
+  ListTree, 
+  Check 
+} from 'lucide-astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+// Filter h2 and h3 for Table of Contents
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+<BaseLayout
+  title={`${post.data.title} | Sabarish K`}
+  description={post.data.description}
+  article={true}
+>
+  <!-- Post Header -->
+  <header class="pt-16 pb-12 border-b border-zinc-800/80 bg-zinc-950/80 relative">
+    <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
+      <!-- Back Link -->
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-emerald-400 transition-colors mb-6 group"
+      >
+        <ArrowLeft class="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+        <span>Return to Publications</span>
+      </a>
+
+      <!-- Category & Meta Info -->
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-400 mb-4">
+        <span class:list={[
+          'px-2.5 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider',
+          post.data.category === 'technical'
+            ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/40'
+            : 'bg-violet-950/60 text-violet-400 border border-violet-800/40'
+        ]}>
+          {post.data.category}
+        </span>
+        <span>•</span>
+        <div class="flex items-center gap-1.5">
+          <Calendar class="w-3.5 h-3.5 text-zinc-500" />
+          <span>{new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+        </div>
+        {post.data.readingTime && (
+          <>
+            <span>•</span>
+            <div class="flex items-center gap-1.5">
+              <Clock class="w-3.5 h-3.5 text-zinc-500" />
+              <span>{post.data.readingTime}</span>
+            </div>
+          </>
+        )}
+      </div>
+
+      <!-- Main Post Title -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.15] mb-4">
+        {post.data.title}
+      </h1>
+
+      <!-- Description / Excerpt -->
+      <p class="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-3xl mb-6">
+        {post.data.description}
+      </p>
+
+      <!-- Tags Row -->
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-800/60">
+        <span class="text-xs font-mono text-zinc-500">Filed under:</span>
+        {post.data.tags.map((tag: string) => (
+          <span class="tech-pill text-xs">{tag}</span>
+        ))}
+      </div>
+    </div>
+  </header>
+
+  <!-- Content & TOC Sidebar Layout -->
+  <div class="container mx-auto px-4 sm:px-6 max-w-5xl py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Main Article Prose (8 cols on desktop) -->
+      <div class="lg:col-span-8">
+        <article id="article-content" class="prose prose-invert prose-zinc max-w-none">
+          <Content />
+        </article>
+
+        <!-- Post-Article Discussion Card -->
+        <div class="mt-16 pt-8 border-t border-zinc-800/80">
+          <div class="card-surface rounded-xl p-6 sm:p-8 border border-zinc-800/80 bg-zinc-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div class="space-y-1">
+              <h3 class="text-base font-bold text-white">Have questions regarding this architecture?</h3>
+              <p class="text-xs text-zinc-400 max-w-md">
+                I consult with engineering leaders on distributed systems, mobile offline sync, and cloud migration resilience.
+              </p>
+            </div>
+            <a href="/contact" class="btn-primary shrink-0 text-xs">
+              <span>Discuss Advisory</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Sticky Table of Contents (4 cols on desktop) -->
+      <aside class="hidden lg:block lg:col-span-4">
+        <div class="sticky top-24 space-y-6">
+          {tocHeadings.length > 0 && (
+            <div class="card-surface rounded-xl p-5 border border-zinc-800/80 bg-zinc-900/40 backdrop-blur-md">
+              <div class="flex items-center gap-2 pb-3 mb-3 border-b border-zinc-800/70 text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
+                <ListTree class="w-3.5 h-3.5 text-emerald-400" />
+                <span>Table of Contents</span>
+              </div>
+              <nav id="toc-nav" class="space-y-1 text-xs">
+                {tocHeadings.map((h) => (
+                  <a
+                    href={`#${h.slug}`}
+                    class:list={[
+                      'toc-link block py-1.5 px-2 rounded-md transition-colors leading-tight',
+                      h.depth === 3 ? 'pl-5 text-zinc-400' : 'text-zinc-300 font-medium',
+                      'hover:text-emerald-400 hover:bg-zinc-800/50'
+                    ]}
+                    data-slug={h.slug}
+                  >
+                    {h.text}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
+
+          <!-- Author Summary Card -->
+          <div class="card-surface rounded-xl p-5 border border-zinc-800/80 bg-zinc-900/40 text-xs space-y-2">
+            <div class="font-mono text-zinc-500 uppercase tracking-wider text-[10px]">Author &amp; Architect</div>
+            <div class="font-bold text-zinc-100">Sabarish Kamaraju</div>
+            <p class="text-zinc-400 leading-relaxed text-[11px]">
+              Enterprise Mobility Architect specializing in SAP Service &amp; Asset Manager (SSAM), S/4HANA migrations, and field workforce solutions for global utilities.
+            </p>
+            <div class="pt-2 border-t border-zinc-800/60">
+              <a
+                href="https://www.linkedin.com/in/sabarish-k-6b979918/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 hover:text-emerald-300"
+              >
+                <span>Connect on LinkedIn ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container for Code Copying -->
+  <div
+    id="copy-toast"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-xl bg-zinc-900 text-emerald-400 border border-emerald-500/40 text-xs font-mono shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 opacity-0 pointer-events-none translate-y-2 flex items-center gap-2"
+  >
+    <Check class="w-3.5 h-3.5 text-emerald-400" />
+    <span>Snippet copied to clipboard</span>
+  </div>
+</BaseLayout>
+
+<script>
+  function setupArticleEnhancements() {
+    // 1. Shiki Code Block Copy Button Wrapper
+    const codeBlocks = document.querySelectorAll<HTMLElement>('#article-content pre');
+    const toast = document.getElementById('copy-toast');
+
+    codeBlocks.forEach((pre) => {
+      // Prevent duplicate wrapping on page transition
+      if (pre.parentElement?.classList.contains('code-block-wrapper')) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'relative code-block-wrapper group my-6';
+      pre.parentNode?.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      // Create copy button
+      const copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className =
+        'absolute top-3 right-3 p-1.5 rounded-md bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-100 border border-zinc-700/60 opacity-0 group-hover:opacity-100 transition-all focus:opacity-100 text-[11px] font-mono flex items-center gap-1.5 shadow-sm';
+      copyBtn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        <span>Copy</span>
+      `;
+
+      copyBtn.addEventListener('click', async () => {
+        const codeElement = pre.querySelector('code');
+        const code = (codeElement ? codeElement.textContent : pre.textContent) || '';
+        try {
+          await navigator.clipboard.writeText(code);
+          copyBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-emerald-400">Copied</span>
+          `;
+          
+          if (toast) {
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+              toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+              toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 2500);
+          }
+
+          setTimeout(() => {
+            copyBtn.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              <span>Copy</span>
+            `;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy', err);
+        }
+      });
+
+      wrapper.appendChild(copyBtn);
+    });
+
+    // 2. Sticky TOC Active Tracking via IntersectionObserver
+    const tocLinks = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+    const articleHeadings = document.querySelectorAll<HTMLElement>('#article-content h2, #article-content h3');
+
+    if (tocLinks.length > 0 && articleHeadings.length > 0) {
+      const observerCallback: IntersectionObserverCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            tocLinks.forEach((link) => {
+              if (link.dataset.slug === id) {
+                link.classList.add('text-emerald-400', 'bg-zinc-800/80', 'font-semibold');
+                link.classList.remove('text-zinc-400', 'text-zinc-300');
+              } else {
+                link.classList.remove('text-emerald-400', 'bg-zinc-800/80', 'font-semibold');
+                link.classList.add('text-zinc-400');
+              }
+            });
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, {
+        rootMargin: '-80px 0px -70% 0px',
+      });
+
+      articleHeadings.forEach((heading) => observer.observe(heading));
+    }
+  }
+
+  setupArticleEnhancements();
+  document.addEventListener('astro:page-load', setupArticleEnhancements);
+</script>

@@ -1,0 +1,147 @@
+---
+import { CheckCircle2, Building2 } from 'lucide-astro';
+
+export interface MilestoneProgram {
+  id: string;
+  period: string;
+  role: string;
+  organization: string;
+  clients: string[];
+  scope: string;
+  deliverables: string[];
+  techStack: string[];
+}
+
+const programs: MilestoneProgram[] = [
+  {
+    id: 'program-us-utilities',
+    period: '2024 — Present',
+    role: 'Principal Enterprise Mobility Architect & SSAM Lead',
+    organization: 'Enterprise Mobility Advisory & Consulting',
+    clients: ['PG&E', 'SCE', 'AES', 'Xcel Energy', 'LES', 'ARC Resources'],
+    scope: 'Directing architectural strategy for next-generation SSAM 2410 and 2505 upgrades, enterprise Dynamic Forms rollout, and mission-critical SMP-to-BTP Mobile Services cloud migrations for top-tier US power, gas, and energy utilities.',
+    deliverables: [
+      'Architected SSAM 2410/2505 migration paths, preserving custom client extensions and multi-tier offline OData caches for 15,000+ field utility workers.',
+      'Designed end-to-end integration architecture for Mirata Forms and SAP Dynamic Forms, automating Job Safety Analyses (JSA) and EHS regulatory compliance.',
+      'Led SMP 3.0 on-premise decommissioning to SAP BTP Mobile Services on Cloud Foundry, reducing infrastructure maintenance overhead by 45%.',
+      'Configured hardened MDK client branding (iOS IPA / Android APK) integrated with Microsoft Intune MAM and VMware Workspace ONE.',
+    ],
+    techStack: ['SSAM 2505', 'SAP BTP Cloud Foundry', 'MDK', 'SAP Dynamic Forms', 'Mirata Forms', 'S/4HANA EAM', 'Esri GIS'],
+  },
+  {
+    id: 'program-lan-pharma',
+    period: '2024',
+    role: 'Senior Mobility Solutions Consultant',
+    organization: 'LAN Innovations',
+    clients: ['Swiss Pharma Enterprise', 'LAN Innovations Client Network'],
+    scope: 'Led SSAM 2405 BTP Cloud Foundry enterprise rollouts, Swiss Pharma GxP-compliant asset management upgrades (SSAM 2205 -> 2305), and custom MDK client packaging for highly regulated manufacturing facilities.',
+    deliverables: [
+      'Supervised SSAM 2205 to 2305 upgrade across validated GxP environments, ensuring 21 CFR Part 11 electronic signature audit compliance.',
+      'Built custom native MDK plugins and branded container packages for ruggedized barcode scanners and intrinsically safe mobile tablets.',
+      'Implemented offline data delta synchronization tuning across 24 high-volume defining requests, cutting mobile sync cycle times under 2 seconds.',
+    ],
+    techStack: ['SSAM 2405', 'SAP BTP Mobile Services', 'MDK Native', 'Offline OData', 'GxP Compliance', 'Custom Client Branding'],
+  },
+  {
+    id: 'program-wipro-modernization',
+    period: '2022 — 2024',
+    role: 'Lead SAP Mobility Architect',
+    organization: 'Wipro Technologies',
+    clients: ['UK Water & Electric Utilities', 'Global Energy Leaders'],
+    scope: 'Orchestrated massive modernization programs transitioning legacy Syclo-Agentry platforms to SAP S/4HANA across Plant Maintenance (PM), Project Systems (PS), CRM, and Work Clearance Management (WCM).',
+    deliverables: [
+      'Modernized UK Utility operations through SSAM 2210 rollout with Linear Asset Management (LAM) and GIS pipeline visualization.',
+      'Designed dual-run data reconciliation adapters enabling field technicians to transition seamlessly from legacy Syclo Work Manager to MDK SSAM.',
+      'Engineered backend ABAP BAdIs, custom BAPIs, and MAIF OData service endpoints for complex field service orders and WCM isolation tagouts.',
+    ],
+    techStack: ['Syclo-Agentry', 'SAP Work Manager 6.2', 'SAP S/4HANA', 'SSAM 2210', 'ABAP MAIF', 'WCM', 'Linear Asset Management'],
+  },
+  {
+    id: 'program-earlier-foundations',
+    period: '2012 — 2022',
+    role: 'Senior SAP Mobility & Integration Engineer',
+    organization: 'L&T Infotech (LTIMindtree) • Future Focus • IBM',
+    clients: ['Global Oil & Gas', 'Discrete Manufacturing', 'Infrastructure Enterprises'],
+    scope: 'Delivered foundational Greenfield Agentry field mobility solutions, SMP 3.0 architectures, custom Java/Spring backend business logic, and core SAP PM/MM mobile integration tooling.',
+    deliverables: [
+      'Architected and implemented Greenfield Syclo Agentry solutions (SAP Work Manager 6.0/6.1, Inventory Manager 4.2) for oil refineries and offshore platforms.',
+      'Engineered high-throughput Java OpenSearch fetch rules and complex transaction stepping for SAP NetWeaver and ECC backends.',
+      'Mentored and cross-trained enterprise mobility squads during the industry-wide evolution from on-prem SMP 3.0 to modern SAP BTP Cloud.',
+    ],
+    techStack: ['Syclo Agentry', 'SAP Work Manager 6.0', 'SMP 3.0 SDK', 'Java / Spring', 'SAP ECC EHP7/8', 'Plant Maintenance'],
+  },
+];
+---
+
+<div class="relative border-l border-zinc-800/80 ml-4 sm:ml-6 space-y-12 py-4">
+  {programs.map((prog) => (
+    <div class="relative pl-6 sm:pl-8 group">
+      <!-- Pulsing Node Anchor on the vertical line -->
+      <div class="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-zinc-950 border-2 border-zinc-700 group-hover:border-emerald-400 group-hover:bg-emerald-500/20 transition-all duration-300 flex items-center justify-center">
+        <span class="h-1.5 w-1.5 rounded-full bg-zinc-400 group-hover:bg-emerald-400 transition-colors"></span>
+      </div>
+
+      <!-- Milestone Card -->
+      <div class="card-surface rounded-xl p-5 sm:p-7 border border-zinc-800/80 bg-zinc-900/30 group-hover:border-zinc-700/80 transition-all">
+        <!-- Header: Period & Role -->
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="text-xs font-mono font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2.5 py-0.5 rounded-md inline-block">
+                {prog.period}
+              </span>
+              <span class="text-xs font-mono text-zinc-400">
+                {prog.organization}
+              </span>
+            </div>
+            <h4 class="text-lg sm:text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">
+              {prog.role}
+            </h4>
+          </div>
+        </div>
+
+        <!-- Client & Program Badges Strip -->
+        <div class="mb-4 p-3 rounded-lg bg-zinc-950/70 border border-zinc-800/70">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-zinc-500 mb-1.5 font-semibold">
+            Key Enterprise Programs &amp; Clients
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            {prog.clients.map((client) => (
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-zinc-800/80 border border-zinc-700/60 text-[11px] font-mono text-emerald-300">
+                <Building2 class="w-2.5 h-2.5 text-emerald-400" />
+                <span>{client}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Scope Overview -->
+        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4">
+          {prog.scope}
+        </p>
+
+        <!-- Deliverables -->
+        <div class="space-y-2 mb-5">
+          <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-500 font-semibold">
+            Key Architectural Deliverables
+          </div>
+          <div class="space-y-2">
+            {prog.deliverables.map((deliv) => (
+              <div class="flex items-start gap-2.5 text-xs text-zinc-300 leading-relaxed">
+                <CheckCircle2 class="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                <span>{deliv}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Tech tags -->
+        <div class="flex flex-wrap gap-1.5 pt-3 border-t border-zinc-800/60">
+          {prog.techStack.map((t) => (
+            <span class="tech-pill text-[10px]">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

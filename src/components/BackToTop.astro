@@ -1,0 +1,42 @@
+---
+import { ArrowUp } from 'lucide-astro';
+---
+
+<button
+  id="back-to-top"
+  type="button"
+  aria-label="Back to top"
+  class="fixed bottom-6 right-6 z-40 p-2.5 rounded-xl bg-zinc-900/90 text-zinc-300 border border-zinc-700/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md hover:text-emerald-400 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300 opacity-0 pointer-events-none translate-y-3 focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+>
+  <ArrowUp class="w-4 h-4" />
+</button>
+
+<script>
+  function setupBackToTop() {
+    const btn = document.getElementById('back-to-top');
+    if (!btn) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+        btn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      } else {
+        btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+        btn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
+  }
+
+  setupBackToTop();
+  document.addEventListener('astro:page-load', setupBackToTop);
+</script>

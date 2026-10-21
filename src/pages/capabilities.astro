@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { 
+  Smartphone, 
+  Database, 
+  MapPin, 
+  RefreshCw, 
+  ShieldCheck, 
+  Cpu, 
+  ArrowRight, 
+  Terminal 
+} from 'lucide-astro';
+
+const capabilitiesCatalog = [
+  {
+    id: 'ssam-mdk-architecture',
+    icon: Smartphone,
+    domain: 'Enterprise Mobility & Field Workforce',
+    title: 'SAP Service & Asset Manager (SSAM) & MDK Architecture',
+    problemStatement: 'Field technicians and linemen working in remote substations, utility easements, and power plants encounter prolonged cellular outages. Off-the-shelf mobile apps fail to cache complex hierarchical asset structures (Functional Locations, Equipment, Operations, Components) or crash during multi-megabyte offline delta synchronizations.',
+    solutionPattern: 'MDK Offline OData Store Tuning with Defining Request Optimization & Custom Client Containers',
+    architectureDescription: 'Deploying high-performance SAP Service and Asset Manager (SSAM) architectures across multi-version upgrade trajectories (2105 -> 2210 -> 2410 -> 2505). Packaging branded native MDK client containers (iOS IPA / Android APK) integrated with corporate MDM profiles, while optimizing defining requests and local SQLite UltraLite caches to synchronize sub-second deltas across 15,000+ field technicians.',
+    diagram: `┌────────────────────────────────────────────────────────────────────────┐
+│                   Field Technician Mobile Device (MDK)                 │
+│  ┌───────────────────────┐  ┌───────────────────┐  ┌────────────────┐  │
+│  │ Custom Branded Client │  │ Offline UltraLite │  │ Delta Sync Q   │  │
+│  │ (iOS IPA / Android APK│ <│ OData v4 Store    │ <│ (Prioritized)  │  │
+│  └───────────────────────┘  └───────────────────┘  └────────┬───────┘  │
+└─────────────────────────────────────────────────────────────┼──────────┘
+                                                              │ mTLS / OAuth2
+                                                              ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                    SAP BTP Mobile Services (Cloud Foundry)             │
+│  ┌───────────────────────┐  ┌───────────────────┐  ┌────────────────┐  │
+│  │ Destination Proxy     │  │ Offline OData Svc │  │ App Config &   │  │
+│  │ (Cloud Connector)     │  │ (Delta Calculation│  │ Security Policy│  │
+│  └───────────────────────┘  └───────────────────┘  └────────────────┘  │
+└────────────────────────────────────────────────────────────────────────┘`,
+    casePoints: [
+      {
+        metric: 'SSAM 2505 Upgrade Lead',
+        detail: 'Architected migration pathways from SSAM 2105/2210 to 2410/2505 for major North American utilities (PG&E, SCE, AES, Xcel Energy).',
+      },
+      {
+        metric: '65% Faster Sync Cycles',
+        detail: 'Tuned defining requests and entity filters, reducing field worker sync times from 45s down to 1.4s.',
+      },
+      {
+        metric: 'Custom MDK Client Packaging',
+        detail: 'Built secure, hardened native wrappers with custom camera plugins, barcode engines, and Microsoft Intune MAM compliance.',
+      },
+    ],
+    techStack: ['SSAM 2505', 'MDK', 'SAP BTP Mobile Services', 'Offline OData', 'SQLite', 'iOS/Android'],
+  },
+  {
+    id: 's4hana-backend-integration',
+    icon: Database,
+    domain: 'Core ERP & Asset Management Integration',
+    title: 'S/4HANA Core & Backend Integration (ABAP / MAIF)',
+    problemStatement: 'Modern mobile frontends require high-concurrency OData feeds, but enterprise backends in utilities and energy operate on heavily customized legacy ECC or S/4HANA core architectures with complex Plant Maintenance (PM), Work Clearance Management (WCM), and IS-Utilities validations that reject standard out-of-the-box payloads.',
+    solutionPattern: 'Mobile Application Integration Framework (MAIF) & Clean Core ABAP Extensibility',
+    architectureDescription: 'Deep backend engineering across SAP PM, WCM (Isolation & Normalization), Project Systems (PS Network/Activity), and IS-Utilities. Provisioning custom high-throughput OData entities via SEGW and MAIF, and building modular ABAP BAdIs, User Exits, and BAPI wrappers that comply with S/4HANA Clean Core standards without brittle core modifications.',
+    diagram: `┌───────────────────────────┐         ┌──────────────────────────┐
+│ SAP BTP Mobile Services   │ <=====> │ SAP Cloud Connector (mTLS│
+└───────────────────────────┘         └────────────┬─────────────┘
+                                                   │
+                                                   ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                      SAP S/4HANA 2023 Enterprise Core                  │
+│  ┌────────────────────────┐  ┌──────────────────┐  ┌────────────────┐  │
+│  │ SAP Gateway / SEGW     │  │ MAIF Mobile App  │  │ ABAP BAdIs &   │  │
+│  │ OData Provisioning     │──│ Integration Fwk  │──│ BAPI Adapters  │  │
+│  └────────────────────────┘  └──────────────────┘  └────────┬───────┘  │
+│                                                             │          │
+│  ┌──────────────────────────────────────────────────────────┴───────┐  │
+│  │ SAP PM (Orders/Notifs) • WCM (Permits) • PS (Networks) • IS-U    │  │
+│  └──────────────────────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────────────────────┘`,
+    casePoints: [
+      {
+        metric: 'MAIF Integration Standard',
+        detail: 'Standardized custom field extraction rules and BAdI exits across 14 enterprise utility asset categories.',
+      },
+      {
+        metric: 'Zero-Downtime Clean Core',
+        detail: 'Refactored custom customer-namespace exits to safeguard automated S/4HANA release upgrades.',
+      },
+      {
+        metric: 'Multi-Module Interlock',
+        detail: 'Unified work orders, equipment hierarchy, work center capacities, and financial settlement networks in real-time.',
+      },
+    ],
+    techStack: ['SAP S/4HANA', 'ECC EHP8', 'ABAP', 'RFC/BAPI', 'MAIF', 'SAP CAPM'],
+  },
+  {
+    id: 'field-extensions-gis-wcm',
+    icon: MapPin,
+    domain: 'Field Safety, Spatial & Digital Forms',
+    title: 'Specialized Field Extensions (GIS, Dynamic Forms, WCM)',
+    problemStatement: 'Utility field operatives cannot rely on paper safety permits, lockout-tagout sheets, or static PDFs when executing high-voltage or pressurized gas work orders in the field. Lack of real-time GIS mapping and dynamic safety checklists leads to compliance violations and dangerous operational hazards.',
+    solutionPattern: 'Esri/GEF Spatial Integration, Mirata/Dynamic Forms, & Mobile WCM Tagging',
+    architectureDescription: 'Extending SSAM with SAP Geographical Enablement Framework (GEF) and Esri GIS feature layers for high-precision asset visualization across transmission corridors and pipeline segments. Implementing Mirata Forms and SAP Dynamic Forms for digital Job Safety Analyses (JSA), coupled with mobile Work Clearance Management (WCM) isolation and normalization verification.',
+    diagram: `┌────────────────────────────────────────────────────────────────────────┐
+│                   SSAM Field Crew Operations Console                   │
+│  ┌───────────────────────┐  ┌───────────────────┐  ┌────────────────┐  │
+│  │ Esri / GEF GIS Map    │  │ Mirata / Dynamic  │  │ WCM Safety Lock│  │
+│  │ (Linear Pipelines)    │  │ Forms Engine (JSA)│  │ & Tag Isolation│  │
+│  └───────────────────────┘  └───────────────────┘  └────────────────┘  │
+└────────────────────────────────────┬───────────────────────────────────┘
+                                     │ Spatial & Safety Delta Commits
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                   Backend Safety & Geospatial Servers                  │
+│  ┌───────────────────────┐  ┌───────────────────┐  ┌────────────────┐  │
+│  │ ArcGIS Enterprise     │  │ S/4HANA WCM       │  │ EHS Regulatory │  │
+│  │ Feature Server (Sync) │  │ Isolation Engine  │  │ Compliance Hub │  │
+│  └───────────────────────┘  └───────────────────┘  └────────────────┘  │
+└────────────────────────────────────────────────────────────────────────┘`,
+    casePoints: [
+      {
+        metric: '100% Digital JSA Audits',
+        detail: 'Replaced paper safety inspections with dynamic mobile checklists across utility field service crews.',
+      },
+      {
+        metric: 'Linear Asset GIS Sync',
+        detail: 'Mapped thousands of miles of electric transmission and gas pipelines via Linear Asset Management (LAM) & GIS.',
+      },
+      {
+        metric: 'Mobile Tagout Verification',
+        detail: 'Digitized physical lockout/tagout (LOTO) sequences to prevent unauthorized equipment energization.',
+      },
+    ],
+    techStack: ['SAP GEF/GIS', 'SAP Dynamic Forms', 'Mirata Forms', 'LAM', 'WCM', 'Work Zone'],
+  },
+  {
+    id: 'legacy-migration-modernization',
+    icon: RefreshCw,
+    domain: 'Agentry to SAP BTP Migration',
+    title: 'Legacy Migration & Platform Modernization',
+    problemStatement: 'Aging on-premise Syclo-Agentry platforms (SAP Work Manager 6.0–6.2.1, Inventory Manager 4.2, and SMP 3.0) face end-of-life support, security vulnerabilities, and incompatibility with modern iOS/Android updates, yet contain years of entrenched custom Java business logic.',
+    solutionPattern: 'De-Risked Syclo-to-SSAM Modernization with Business Logic Retrofitting',
+    architectureDescription: 'De-risking and accelerating large-scale migrations from legacy Syclo Agentry systems to cloud-native SSAM on SAP BTP and S/4HANA. Mapping complex Agentry screens, transactions, and Java OpenSearch fetch rules into clean MDK metadata, rules, and actions, ensuring continuity of field operations without operational downtime.',
+    diagram: `┌───────────────────────────┐         ┌──────────────────────────┐
+│ Legacy Platform (Sunset)  │         │ Modern Cloud Target      │
+│ ┌───────────────────────┐ │         │ ┌──────────────────────┐ │
+│ │ Syclo Work Manager    │ │         │ │ SAP SSAM 2505 (MDK)  │ │
+│ │ 6.0 / 6.2 (Agentry)   │ │ ──────> │ │ Cloud Foundry / BTP  │ │
+│ └───────────────────────┘ │         │ └──────────────────────┘ │
+│ ┌───────────────────────┐ │         │ ┌──────────────────────┐ │
+│ │ SMP 3.0 Server (Java) │ │         │ │ S/4HANA MAIF & BAdIs │ │
+│ └───────────────────────┘ │         │ └──────────────────────┘ │
+└───────────────────────────┘         └──────────────────────────┘`,
+    casePoints: [
+      {
+        metric: '100% Logic Preservation',
+        detail: 'Transformed deeply customized Syclo Java business rules into modern maintainable MDK rules.',
+      },
+      {
+        metric: 'Zero-Downtime Transition',
+        detail: 'Orchestrated dual-run mobile sync cutovers across 15,000+ field utility workers without lost service orders.',
+      },
+      {
+        metric: '45% Infra Cost Reduction',
+        detail: 'Eliminated legacy SMP 3.0 Windows server clusters in favor of serverless SAP BTP Mobile Services.',
+      },
+    ],
+    techStack: ['Syclo-Agentry', 'Java/Spring', 'SMP 3.0 SDK', 'Retrofitting', 'Migration Strategy'],
+  },
+];
+---
+
+<BaseLayout
+  title="Capabilities & Architecture Catalog | Sabarish Kamaraju"
+  description="Deep-dive architectural catalog of SAP Service & Asset Manager (SSAM), S/4HANA core backend integration, GIS/Dynamic Forms field extensions, and Syclo-Agentry modernization."
+>
+  <!-- Page Header -->
+  <section class="pt-16 pb-12 md:pt-20 md:pb-16 border-b border-zinc-800/80 bg-zinc-950/70 relative">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-800/40 text-xs font-mono text-emerald-400">
+          <Cpu class="w-3.5 h-3.5" />
+          <span>Specialized Enterprise Architecture Catalog</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          System Capabilities &amp; Architecture Patterns
+        </h1>
+        <p class="text-base sm:text-lg text-zinc-400 leading-relaxed font-normal">
+          An engineering breakdown of 13+ years specializing in SAP Service and Asset Manager (SSAM), S/4HANA backend integrations, geospatial field workflows, and legacy Agentry modernizations for Utilities, Energy, and Pharma enterprises.
+        </p>
+      </div>
+
+      <!-- Quick Jump Pills -->
+      <div class="flex flex-wrap gap-2 pt-6">
+        {capabilitiesCatalog.map((item) => (
+          <a
+            href={`#${item.id}`}
+            class="px-3 py-1 rounded-lg text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-emerald-400 hover:border-zinc-700 transition-all"
+          >
+            #{item.id}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Sections -->
+  <div class="container mx-auto px-4 sm:px-6 py-16 space-y-20">
+    {capabilitiesCatalog.map((item, index) => {
+      const IconComponent = item.icon;
+      return (
+        <section 
+          id={item.id} 
+          class="scroll-mt-24 p-6 sm:p-10 rounded-2xl border border-zinc-800/90 bg-zinc-900/30 backdrop-blur-xl relative overflow-hidden"
+        >
+          <!-- Ambient Glow Corner -->
+          <div class="absolute -top-16 -right-16 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <!-- Section Header -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-zinc-800/80">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-950 border border-zinc-700/80 text-emerald-400 shadow-inner">
+                <IconComponent class="w-6 h-6" />
+              </div>
+              <div>
+                <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                  {item.domain}
+                </span>
+                <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  {item.title}
+                </h2>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-zinc-800/80 border border-zinc-700/60 text-zinc-300 font-mono text-xs">
+                Pillar 0{index + 1}
+              </span>
+            </div>
+          </div>
+
+          <!-- Problem vs Solution Pattern -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
+            <!-- Problem Statement -->
+            <div class="p-6 rounded-xl bg-zinc-950/60 border border-rose-900/30 space-y-3">
+              <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-rose-400 font-semibold">
+                <span>The Industry Challenge</span>
+              </div>
+              <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                {item.problemStatement}
+              </p>
+            </div>
+
+            <!-- Solution Pattern -->
+            <div class="p-6 rounded-xl bg-zinc-950/60 border border-emerald-900/40 space-y-3">
+              <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                <ShieldCheck class="w-4 h-4" />
+                <span>Engineered Solution Pattern</span>
+              </div>
+              <div class="text-sm font-semibold text-white">
+                {item.solutionPattern}
+              </div>
+              <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                {item.architectureDescription}
+              </p>
+            </div>
+          </div>
+
+          <!-- Architecture Flow Diagram -->
+          <div class="my-8 rounded-xl border border-zinc-800/90 bg-zinc-950 p-4 sm:p-6 overflow-x-auto">
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800/60 text-xs font-mono text-zinc-400">
+              <div class="flex items-center gap-2">
+                <Terminal class="w-4 h-4 text-emerald-400" />
+                <span>Architecture Topology &amp; Integration Blueprint</span>
+              </div>
+              <span class="text-zinc-500">ASCII Architecture Blueprint</span>
+            </div>
+            <pre class="font-mono text-xs text-emerald-300/90 leading-snug whitespace-pre overflow-x-auto">{item.diagram}</pre>
+          </div>
+
+          <!-- Production Case Points -->
+          <div class="space-y-3 my-8">
+            <div class="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
+              Production Execution Case Points
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {item.casePoints.map((cp) => (
+                <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 space-y-1.5">
+                  <div class="text-sm font-bold font-mono text-emerald-400">
+                    {cp.metric}
+                  </div>
+                  <p class="text-xs text-zinc-400 leading-relaxed">
+                    {cp.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Tech Stack Pill Row & CTA -->
+          <div class="pt-6 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="text-xs font-mono text-zinc-500 mr-2">Core Tools:</span>
+              {item.techStack.map((tech) => (
+                <span class="tech-pill">{tech}</span>
+              ))}
+            </div>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 shrink-0"
+            >
+              <span>Discuss Advisory on this Domain</span>
+              <ArrowRight class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</BaseLayout>

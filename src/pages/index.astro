@@ -1,0 +1,341 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CapabilitiesGrid from '../components/CapabilitiesGrid.astro';
+import Timeline from '../components/Timeline.astro';
+import { getCollection } from 'astro:content';
+import { 
+  ArrowRight, 
+  BookOpen, 
+  ExternalLink, 
+  Award, 
+  ShieldCheck,
+  Linkedin
+} from 'lucide-astro';
+
+// Fetch recent blog posts (max 2)
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const recentPosts = posts
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 2);
+
+const certifications = [
+  {
+    title: 'SAP Certified Professional – Solution Architect – SAP BTP & SAP Business AI Platform',
+    level: 'Professional Solution Architect',
+    issuer: 'SAP',
+    badgeUrl: 'https://www.credly.com/badges/c0bdd6e0-8510-490a-a778-796466214a8c',
+    code: 'BTP-SA-PRO',
+    highlight: 'Enterprise Cloud Architecture, AI Extensions & Clean Core Governance',
+  },
+  {
+    title: 'SAP Certified Associate – Low-Code/No-Code Developer – SAP Build',
+    level: 'Certified Associate Developer',
+    issuer: 'SAP',
+    badgeUrl: 'https://www.credly.com/badges/d3adcc74-a03e-42a3-a681-6e7882ec088e',
+    code: 'C_LCNC-BUILD',
+    highlight: 'SAP Build Apps, Process Automation & Work Zone Integration',
+  },
+];
+---
+
+<BaseLayout 
+  title="Sabarish Kamaraju | Enterprise Mobility Architect & SAP Solutions Specialist"
+  description="Enterprise mobility architect with 13+ years specializing in SAP Service & Asset Manager (SSAM), BTP, Syclo-Agentry migrations, and field workforce solutions for global utilities."
+>
+  <!-- Hero Section (Clean Executive Showcase) -->
+  <section class="relative pt-14 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-4xl space-y-7">
+        <!-- Pulsing Status Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)] text-xs font-mono text-emerald-400">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="font-medium">Advising Utilities &amp; Enterprise Asset Management</span>
+        </div>
+
+        <!-- Name & Title / Headline -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-sm font-mono text-emerald-400 font-semibold tracking-wide uppercase">
+            <span>Sabarish Kamaraju</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-zinc-400">13+ Years Experience</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+            Enterprise Mobility Architect <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+              SAP BTP &amp; SSAM Solutions Specialist
+            </span>
+          </h1>
+          <p class="text-base sm:text-lg text-zinc-300 max-w-3xl leading-relaxed font-normal">
+            13+ years architecting mission-critical field workforce mobile solutions, S/4HANA migrations, and offline-first mobile applications across major global energy, utility, and pharma enterprises.
+          </p>
+        </div>
+
+        <!-- Key Metrics / Proof Points Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-zinc-800/80 max-w-3xl font-mono">
+          <div>
+            <div class="text-xl sm:text-2xl font-bold text-zinc-100">13+ Years</div>
+            <div class="text-xs text-zinc-400">Enterprise Mobility</div>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-bold text-zinc-100">15K+</div>
+            <div class="text-xs text-zinc-400">Field Workforce Scale</div>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-bold text-emerald-400">99.98%</div>
+            <div class="text-xs text-zinc-400">Offline Sync Reliability</div>
+          </div>
+          <div>
+            <div class="text-xl sm:text-2xl font-bold text-cyan-400">S/4HANA</div>
+            <div class="text-xs text-zinc-400">&amp; BTP Native EAM</div>
+          </div>
+        </div>
+
+        <!-- Primary & Social CTAs -->
+        <div class="flex flex-wrap items-center gap-3 pt-1">
+          <a href="#capabilities" class="btn-primary">
+            <span>Explore Architectural Capabilities</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+          <a href="/blog" class="btn-secondary">
+            <BookOpen class="w-4 h-4 text-zinc-400" />
+            <span>Read Field Architecture Blog</span>
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/sabarish-k-6b979918/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn-secondary group/link hover:border-emerald-500/50"
+            aria-label="Connect on LinkedIn"
+          >
+            <Linkedin class="w-4 h-4 text-emerald-400 group-hover/link:scale-110 transition-transform" />
+            <span>Connect on LinkedIn</span>
+          </a>
+        </div>
+
+        <!-- Certifications Showcase Badges (with direct Credly links) -->
+        <div class="pt-4 space-y-3 max-w-3xl">
+          <div class="flex items-center justify-between text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
+            <div class="flex items-center gap-2">
+              <Award class="w-4 h-4 text-emerald-400" />
+              <span>Verified SAP Certifications &amp; Credentials</span>
+            </div>
+            <span class="text-[10px] text-emerald-400 font-normal">Official Credly Badges ↗</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {certifications.map((cert) => (
+              <a
+                href={cert.badgeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-surface card-glow-hover rounded-xl p-4 border border-zinc-800/90 bg-zinc-900/60 flex flex-col justify-between group transition-all"
+                title={`Verify ${cert.title} on Credly`}
+              >
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/50">
+                      <ShieldCheck class="w-3 h-3 text-emerald-400" />
+                      <span>{cert.level}</span>
+                    </span>
+                    <span class="text-[10px] font-mono text-zinc-500 flex items-center gap-1 group-hover:text-emerald-400 transition-colors">
+                      <span>Credly</span>
+                      <ExternalLink class="w-2.5 h-2.5" />
+                    </span>
+                  </div>
+                  <div class="text-sm font-bold text-zinc-200 group-hover:text-white transition-colors leading-snug">
+                    {cert.title}
+                  </div>
+                  <div class="text-xs text-zinc-400 leading-normal">
+                    {cert.highlight}
+                  </div>
+                </div>
+                <div class="pt-3 mt-3 border-t border-zinc-800/60 flex items-center justify-between text-[11px] font-mono text-zinc-500">
+                  <span>Issuer: {cert.issuer}</span>
+                  <span class="text-emerald-400 font-medium group-hover:underline">Verify Badge On Credly →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Capabilities Section (Anchored with id="capabilities") -->
+  <section id="capabilities" class="py-20 border-t border-zinc-800/80 bg-zinc-950/60 relative scroll-mt-16">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl mb-12">
+        <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">Architectural Domains</div>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">
+          Engineering Hardened Capabilities
+        </h2>
+        <p class="text-sm sm:text-base text-zinc-400 leading-relaxed">
+          From mission-critical offline SAP Service and Asset Manager (SSAM) deployments to S/4HANA Plant Maintenance integration, explore the architectural patterns I implement in production.
+        </p>
+      </div>
+
+      <!-- Capabilities Grid Component -->
+      <CapabilitiesGrid />
+
+      <div class="mt-10 text-center">
+        <a 
+          href="/capabilities" 
+          class="inline-flex items-center gap-2 text-xs font-mono text-zinc-400 hover:text-emerald-400 px-4 py-2 rounded-lg bg-zinc-900/60 border border-zinc-800/80 hover:border-emerald-500/40 transition-all"
+        >
+          <span>Explore deep technical case studies on the Capabilities Catalog</span>
+          <ArrowRight class="w-3.5 h-3.5" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Milestones Section -->
+  <section class="py-20 border-t border-zinc-800/80 relative">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Explanatory Column -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400">Track Record</div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            13+ Years Enterprise Systems Milestones
+          </h2>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            A chronological timeline of production impact: leading SAP mobile rollouts, zero-downtime S/4HANA migrations, and resilient offline field workforce platforms for global energy and utility leaders.
+          </p>
+
+          <div class="p-5 rounded-xl bg-zinc-900/40 border border-zinc-800/80 space-y-3 font-mono text-xs">
+            <div class="text-zinc-200 font-semibold">Specialized Verticals</div>
+            <div class="space-y-1.5 text-zinc-400">
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                <span>Power, Gas &amp; Water Utilities</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                <span>Upstream &amp; Midstream Oil &amp; Gas</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                <span>Clean Energy Generation &amp; Grid Ops</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                <span>Regulated Life Sciences &amp; Pharma</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Timeline Column -->
+        <div class="lg:col-span-8">
+          <Timeline />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Writing Highlights -->
+  <section class="py-20 border-t border-zinc-800/80 bg-zinc-950/60 relative">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2">Technical &amp; Field Writing</div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            Recent Publications &amp; Retrospectives
+          </h2>
+        </div>
+        <a 
+          href="/blog" 
+          class="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
+        >
+          <span>Browse All Articles</span>
+          <ArrowRight class="w-3.5 h-3.5" />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {recentPosts.map((post) => (
+          <article class="card-surface card-glow-hover rounded-xl p-6 border border-zinc-800/80 bg-zinc-900/40 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center gap-3 text-xs font-mono text-zinc-500 mb-3">
+                <span class:list={[
+                  'px-2 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider',
+                  post.data.category === 'technical'
+                    ? 'bg-cyan-950/50 text-cyan-400 border border-cyan-800/40'
+                    : 'bg-violet-950/50 text-violet-400 border border-violet-800/40'
+                ]}>
+                  {post.data.category}
+                </span>
+                <span>•</span>
+                <span>{new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                {post.data.readingTime && (
+                  <>
+                    <span>•</span>
+                    <span>{post.data.readingTime}</span>
+                  </>
+                )}
+              </div>
+
+              <h3 class="text-lg font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors mb-2">
+                <a href={`/blog/${post.id}/`} class="focus:outline-none">
+                  {post.data.title}
+                </a>
+              </h3>
+
+              <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+                {post.data.description}
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-zinc-800/60 text-xs">
+              <div class="flex flex-wrap gap-1">
+                {post.data.tags.slice(0, 3).map((tag) => (
+                  <span class="tech-pill text-[10px]">{tag}</span>
+                ))}
+              </div>
+              <a 
+                href={`/blog/${post.id}/`}
+                class="text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 font-medium font-mono text-[11px]"
+              >
+                <span>Read</span>
+                <ArrowRight class="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisory Callout Banner -->
+  <section class="py-16 border-t border-zinc-800/80 relative overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="relative rounded-2xl border border-zinc-800/80 bg-gradient-to-b from-zinc-900/80 to-zinc-950 p-8 sm:p-12 text-center max-w-4xl mx-auto backdrop-blur-xl shadow-2xl">
+        <div class="absolute inset-0 bg-radial-glow opacity-30 pointer-events-none"></div>
+        <div class="relative z-10 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/60 text-xs font-mono text-emerald-400">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Advisory &amp; Enterprise Architecture Consulting</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Need Expert Mobility &amp; SAP Solutions Guidance?
+          </h2>
+          <p class="text-sm sm:text-base text-zinc-400 max-w-xl mx-auto leading-relaxed">
+            Whether evaluating an SAP Service and Asset Manager (SSAM) migration, designing resilient offline-first field mobile applications, or modernizing S/4HANA EAM integrations, let's schedule an architectural consultation.
+          </p>
+          <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+            <a href="/contact" class="btn-primary">
+              <span>Schedule Architecture Advisory</span>
+              <ArrowRight class="w-4 h-4" />
+            </a>
+            <a href="/capabilities" class="btn-secondary">
+              <span>View Technical Specifications</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
