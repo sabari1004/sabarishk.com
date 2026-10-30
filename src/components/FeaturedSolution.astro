@@ -9,6 +9,7 @@ import {
   BookOpen,
   ExternalLink
 } from './icons';
+import ArchitectureTopology from './ArchitectureTopology.astro';
 ---
 
 <section id="featured-solution" class="py-20 md:py-24 border-t border-zinc-200 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-950/80 relative overflow-hidden transition-colors scroll-mt-16">
@@ -219,26 +220,26 @@ import {
             target="_blank" 
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:underline"
-            title="Open architecture diagram full size"
+            title="Open architecture diagram in new tab"
           >
             <span>Open Vector SVG</span>
             <ExternalLink class="w-3.5 h-3.5" />
           </a>
+          <a 
+            href="/images/architecture-topology.png" 
+            target="_blank" 
+            download="sabarishk-architecture-topology.png"
+            class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 hover:underline"
+            title="Download high-resolution 2560px PNG"
+          >
+            <span>Download PNG</span>
+          </a>
         </div>
       </div>
 
-      <!-- High-Resolution Vector Architecture Topology Diagram -->
+      <!-- High-Resolution Vector Architecture Topology Diagram (Rendered Native DOM for Maximum Retina Sharpness) -->
       <div class="relative rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800/80 bg-zinc-950 p-2 sm:p-4 shadow-inner">
-        <a href="/images/architecture-topology.svg" target="_blank" rel="noopener noreferrer" class="block group cursor-zoom-in" title="Click to view full-resolution diagram">
-          <img 
-            src="/images/architecture-topology.svg" 
-            alt="Decoupled Multi-Tier Architecture Topology: Field Mobile App, Dispatch Scheduling Engine, Integration Gateway, and SAP S/4HANA Enterprise Core" 
-            class="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.005]"
-            width="1280"
-            height="840"
-            loading="lazy"
-          />
-        </a>
+        <ArchitectureTopology class="rounded-lg" />
       </div>
 
       <!-- Collapsible Technical ASCII Blueprint -->
