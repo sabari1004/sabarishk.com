@@ -1,14 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
     <linearGradient id="sk-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#34d399"/>
       <stop offset="100%" stop-color="#10b981"/>
     </linearGradient>
+    <linearGradient id="sk-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.04"/>
+    </linearGradient>
   </defs>
-  <!-- Background Container -->
-  <rect width="32" height="32" rx="7" fill="#09090b" stroke="#27272a" stroke-width="1.5"/>
-  <!-- SK Monogram -->
-  <text x="14.5" y="16.5" font-family="'JetBrains Mono', 'SF Mono', Menlo, Monaco, Consolas, -apple-system, sans-serif" font-size="13" font-weight="900" fill="url(#sk-grad)" text-anchor="middle" dominant-baseline="central" letter-spacing="-0.5px">SK</text>
-  <!-- Status Indicator Dot -->
-  <circle cx="26" cy="25" r="2.5" fill="#10b981"/>
+  <!-- Base Background Badge -->
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="#09090b" stroke="#27272a" stroke-width="1.5"/>
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#sk-glow)"/>
+  <!-- SK Monogram Vector Outline -->
+  <path d="M8.40 16.93 Q6.12 16.06 5.31 15.10 Q4.50 14.14 4.50 12.53 Q4.50 10.45 5.83 9.26 Q7.16 8.07 9.48 8.07 Q10.54 8.07 11.59 8.31 Q12.65 8.55 13.68 9.02 L13.68 11.97 Q12.71 11.29 11.71 10.93 Q10.70 10.57 9.72 10.57 Q8.62 10.57 8.04 11.01 Q7.46 11.45 7.46 12.27 Q7.46 12.90 7.88 13.32 Q8.31 13.73 9.66 14.23 L10.96 14.73 Q12.80 15.40 13.67 16.52 Q14.54 17.63 14.54 19.33 Q14.54 21.64 13.17 22.79 Q11.81 23.93 9.04 23.93 Q7.91 23.93 6.77 23.66 Q5.63 23.38 4.56 22.85 L4.56 19.73 Q5.77 20.59 6.90 21.01 Q8.03 21.43 9.14 21.43 Q10.25 21.43 10.87 20.92 Q11.48 20.42 11.48 19.51 Q11.48 18.82 11.07 18.30 Q10.66 17.79 9.88 17.49 Z M16.16 8.35 L19.18 8.35 L19.18 14.39 L23.91 8.35 L27.33 8.35 L22.51 14.37 L27.50 23.63 L24.14 23.63 L20.52 16.75 L19.18 18.45 L19.18 23.63 L16.16 23.63 Z" fill="url(#sk-grad)"/>
 </svg>
