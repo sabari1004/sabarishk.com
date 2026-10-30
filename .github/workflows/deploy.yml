@@ -33,6 +33,8 @@ jobs:
         run: npm ci
 
       - name: Build production bundle
+        env:
+          PUBLIC_GOOGLE_SCRIPT_URL: ${{ secrets.PUBLIC_GOOGLE_SCRIPT_URL || vars.PUBLIC_GOOGLE_SCRIPT_URL }}
         run: npm run build
 
       - name: Upload artifact for GitHub Pages
