@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="font-family:system-ui, -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <radialGradient id="ssam-glow-emerald" cx="20%" cy="15%" r="45%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ssam-glow-cyan" cx="80%" cy="80%" r="45%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ssam-grad-top" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="ssam-grad-btp" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <marker id="ssam-arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="480" fill="#09090b"/>
+  <rect width="1200" height="480" fill="url(#ssam-glow-emerald)"/>
+  <rect width="1200" height="480" fill="url(#ssam-glow-cyan)"/>
+
+  <!-- Blueprint Vertical Guides -->
+  <g stroke="#1e1e24" stroke-width="1" stroke-dasharray="4,8" opacity="0.6">
+    <line x1="40" y1="0" x2="40" y2="480"/>
+    <line x1="400" y1="0" x2="400" y2="480"/>
+    <line x1="800" y1="0" x2="800" y2="480"/>
+    <line x1="1160" y1="0" x2="1160" y2="480"/>
+  </g>
+
+  <!-- TIER 1: Field Technician Mobile Client (MDK) -->
+  <g transform="translate(40, 24)">
+    <rect width="1120" height="175" rx="14" fill="#101015" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="1120" height="3" rx="1.5" fill="url(#ssam-grad-top)"/>
+
+    <g transform="translate(20, 20)">
+      <rect width="70" height="22" rx="5" fill="#18181f" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="35" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#34d399" text-anchor="middle">LAYER 01</text>
+      <text x="82" y="16" font-size="15" font-weight="700" fill="#ffffff">Field Technician Mobile Device (MDK Native Wrapper)</text>
+      <text x="510" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">Custom Branded Client Container • iOS &amp; Android</text>
+
+      <g transform="translate(930, -2)">
+        <rect width="150" height="24" rx="12" fill="#18181f" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+        <circle cx="12" cy="12" r="3.5" fill="#10b981"/>
+        <text x="22" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#34d399">OFFLINE MDK</text>
+      </g>
+    </g>
+
+    <!-- 3 Sub-Blocks -->
+    <g transform="translate(20, 56)">
+      <!-- Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="345" height="98" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(16, 16)">
+          <circle cx="5" cy="6" r="4" fill="#10b981"/>
+          <text x="18" y="10" font-size="13" font-weight="700" fill="#f4f4f5">Custom Branded Client</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#34d399">iOS IPA / Android APK</text>
+          <text x="0" y="48" font-size="11.5" fill="#a1a1aa">• Microsoft Intune &amp; MobileIron MAM profiles</text>
+          <text x="0" y="66" font-size="11.5" fill="#71717a">• Custom camera &amp; hardware barcode scanners</text>
+        </g>
+      </g>
+      <!-- Card 2 -->
+      <g transform="translate(365, 0)">
+        <rect width="345" height="98" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(16, 16)">
+          <circle cx="5" cy="6" r="4" fill="#10b981"/>
+          <text x="18" y="10" font-size="13" font-weight="700" fill="#f4f4f5">Offline UltraLite OData Store</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#34d399">Encrypted SQLite DB</text>
+          <text x="0" y="48" font-size="11.5" fill="#a1a1aa">• Complex FLOC &amp; Equipment hierarchy cache</text>
+          <text x="0" y="66" font-size="11.5" fill="#71717a">• Deterministic local transaction journaling</text>
+        </g>
+      </g>
+      <!-- Card 3 -->
+      <g transform="translate(730, 0)">
+        <rect width="350" height="98" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(16, 16)">
+          <circle cx="5" cy="6" r="4" fill="#10b981"/>
+          <text x="18" y="10" font-size="13" font-weight="700" fill="#f4f4f5">Prioritized Delta Sync Queue</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#34d399">Defining Request Tuning</text>
+          <text x="0" y="48" font-size="11.5" fill="#a1a1aa">• Sync times reduced from 45s to &lt;2 seconds</text>
+          <text x="0" y="66" font-size="11.5" fill="#71717a">• Multi-entity change detection &amp; conflict triage</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- INTER-TIER CONNECTOR -->
+  <g transform="translate(600, 199)">
+    <line x1="0" y1="0" x2="0" y2="65" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#ssam-arrow)"/>
+    <g transform="translate(-195, 17)">
+      <rect width="390" height="28" rx="14" fill="#14141a" stroke="#38bdf8" stroke-width="1.3"/>
+      <circle cx="16" cy="14" r="3.5" fill="#38bdf8"/>
+      <text x="28" y="18" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#e0f2fe">mTLS / OAUTH 2.0 • OFFLINE ODATA V4 SYNC</text>
+    </g>
+  </g>
+
+  <!-- TIER 2: SAP BTP Mobile Services -->
+  <g transform="translate(40, 264)">
+    <rect width="1120" height="175" rx="14" fill="#101015" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="1120" height="3" rx="1.5" fill="url(#ssam-grad-btp)"/>
+
+    <g transform="translate(20, 20)">
+      <rect width="70" height="22" rx="5" fill="#18181f" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="35" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#38bdf8" text-anchor="middle">LAYER 02</text>
+      <text x="82" y="16" font-size="15" font-weight="700" fill="#ffffff">SAP BTP Mobile Services (Cloud Foundry)</text>
+      <text x="420" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">Enterprise Gateway • Delta Engine • Security Broker</text>
+
+      <g transform="translate(930, -2)">
+        <rect width="150" height="24" rx="12" fill="#18181f" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4"/>
+        <circle cx="12" cy="12" r="3.5" fill="#06b6d4"/>
+        <text x="22" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#38bdf8">CLOUD FOUNDRY</text>
+      </g>
+    </g>
+
+    <g transform="translate(20, 56)">
+      <!-- Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="345" height="98" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(16, 16)">
+          <circle cx="5" cy="6" r="4" fill="#06b6d4"/>
+          <text x="18" y="10" font-size="13" font-weight="700" fill="#f4f4f5">Destination Proxy &amp; Tunnel</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#38bdf8">SAP Cloud Connector</text>
+          <text x="0" y="48" font-size="11.5" fill="#a1a1aa">• Principal Propagation without shared secrets</text>
+          <text x="0" y="66" font-size="11.5" fill="#71717a">• High-security on-prem S/4HANA connectivity</text>
+        </g>
+      </g>
+      <!-- Card 2 -->
+      <g transform="translate(365, 0)">
+        <rect width="345" height="98" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(16, 16)">
+          <circle cx="5" cy="6" r="4" fill="#06b6d4"/>
+          <text x="18" y="10" font-size="13" font-weight="700" fill="#f4f4f5">Offline OData Delta Engine</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#38bdf8">Change Tracking Calculation</text>
+          <text x="0" y="48" font-size="11.5" fill="#a1a1aa">• Defining request partitioning &amp; tombstones</text>
+          <text x="0" y="66" font-size="11.5" fill="#71717a">• Efficient server-side binary delta assembly</text>
+        </g>
+      </g>
+      <!-- Card 3 -->
+      <g transform="translate(730, 0)">
+        <rect width="350" height="98" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(16, 16)">
+          <circle cx="5" cy="6" r="4" fill="#06b6d4"/>
+          <text x="18" y="10" font-size="13" font-weight="700" fill="#f4f4f5">App Config &amp; Security Policy</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#38bdf8">Zero-Trust Mobile Security</text>
+          <text x="0" y="48" font-size="11.5" fill="#a1a1aa">• Passcode lock, biometric auth &amp; remote wipe</text>
+          <text x="0" y="66" font-size="11.5" fill="#71717a">• Feature flag toggles &amp; log upload triage</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- FOOTER -->
+  <g transform="translate(40, 458)">
+    <circle cx="5" cy="5" r="3" fill="#10b981"/>
+    <text x="16" y="9" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="#71717a">SSAM 2505 Upgrade Lead • 65% Faster Sync • Custom MDK Native Packaging • 15,000+ Field Technicians</text>
+    <text x="1070" y="9" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10" font-weight="600" fill="#34d399">sabarishk.com</text>
+  </g>
+</svg>

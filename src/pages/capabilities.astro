@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeaturedSolution from '../components/FeaturedSolution.astro';
+import CapabilityTopology from '../components/CapabilityTopology.astro';
 import { 
   Smartphone, 
   Database, 
@@ -9,8 +10,16 @@ import {
   ShieldCheck, 
   Cpu, 
   ArrowRight, 
-  Terminal 
+  Terminal,
+  ExternalLink
 } from '../components/icons';
+
+const topologySlugMap: Record<string, string> = {
+  'ssam-mdk-architecture': 'ssam-mdk',
+  's4hana-backend-integration': 's4hana-eam',
+  'field-extensions-gis-wcm': 'field-extensions',
+  'legacy-migration-modernization': 'legacy-migration',
+};
 
 const capabilitiesCatalog = [
   {
@@ -285,16 +294,77 @@ const capabilitiesCatalog = [
           </div>
 
           <!-- Architecture Flow Diagram -->
-          <div class="my-8 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-zinc-900 dark:bg-zinc-950 p-4 sm:p-6 overflow-x-auto shadow-inner">
-            <div class="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800 text-xs font-mono text-zinc-400">
-              <div class="flex items-center gap-2">
-                <Terminal class="w-4 h-4 text-emerald-400" />
-                <span>Architecture Topology &amp; Integration Blueprint</span>
+          {(() => {
+            const slug = topologySlugMap[item.id] || 'ssam-mdk';
+            const svgPath = `/images/topology-${slug}.svg`;
+            const pngPath = `/images/topology-${slug}.png`;
+            return (
+              <div class="my-8 rounded-xl border border-zinc-200 dark:border-zinc-800/90 bg-zinc-900/40 dark:bg-zinc-950 p-3 sm:p-5 shadow-2xl space-y-4">
+                <!-- Header Toolbar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-zinc-200 dark:border-zinc-800/80 text-xs font-mono">
+                  <div class="flex items-center gap-2 text-zinc-900 dark:text-zinc-200 font-semibold">
+                    <Terminal class="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
+                    <span>Architecture Topology &amp; Integration Blueprint</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-[11px] text-zinc-500 dark:text-zinc-400">
+                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-medium">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Vector Blueprint
+                    </span>
+                    <a
+                      href={svgPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                      title="Open full vector SVG in new tab"
+                    >
+                      <span>Open SVG</span>
+                      <ExternalLink class="w-3 h-3" />
+                    </a>
+                    <span class="text-zinc-400 dark:text-zinc-600">/</span>
+                    <a
+                      href={pngPath}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 text-zinc-600 dark:text-zinc-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                      title="Open 2560px Retina PNG in new tab"
+                    >
+                      <span>Retina PNG</span>
+                      <ExternalLink class="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Native Vector Diagram Container -->
+                <div class="rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800/80 bg-zinc-950 shadow-inner group relative">
+                  <a
+                    href={svgPath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block cursor-zoom-in"
+                    title="Click to view full-resolution vector schematic"
+                  >
+                    <CapabilityTopology id={item.id} class="w-full h-auto" />
+                    <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 absolute bottom-3 right-3 text-[10px] font-mono text-zinc-200 bg-zinc-900/95 border border-zinc-700/80 px-2.5 py-1 rounded-md shadow-lg backdrop-blur-xs flex items-center gap-1.5 pointer-events-none">
+                      <ExternalLink class="w-3 h-3 text-emerald-400" /> Click to open full-resolution SVG
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Collapsible ASCII Blueprint Fallback -->
+                <details class="group rounded-lg border border-zinc-200 dark:border-zinc-800/70 bg-zinc-100/70 dark:bg-zinc-900/40 p-3 transition-colors">
+                  <summary class="text-xs font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 cursor-pointer flex items-center justify-between select-none">
+                    <span class="flex items-center gap-2">
+                      <Terminal class="w-3.5 h-3.5 text-zinc-500" />
+                      <span>View Raw ASCII Schematic &amp; Component Map</span>
+                    </span>
+                    <span class="text-[10px] text-zinc-400 transition-transform duration-200 group-open:rotate-180">▼</span>
+                  </summary>
+                  <pre class="mt-3 font-mono text-[11px] text-emerald-700 dark:text-emerald-300/90 leading-snug whitespace-pre overflow-x-auto p-3 rounded-md bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800/70">{item.diagram}</pre>
+                </details>
               </div>
-              <span class="text-zinc-500">ASCII Architecture Blueprint</span>
-            </div>
-            <pre class="font-mono text-xs text-emerald-300/90 leading-snug whitespace-pre overflow-x-auto">{item.diagram}</pre>
-          </div>
+            );
+          })()}
 
           <!-- Production Case Points -->
           <div class="space-y-3 my-8">

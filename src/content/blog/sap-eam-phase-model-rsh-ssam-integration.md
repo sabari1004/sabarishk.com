@@ -69,6 +69,12 @@ Transitioning from Phase 5 (Preparation) to Phase 6 (Scheduling) requires automa
 
 Depending on asset complexity and operational dispatch topology, utilities employ either **SAP Multi-Resource Scheduling (MRS)** or **SAP Resource Scheduling (RSH)**.
 
+<div class="my-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 p-2 sm:p-3 overflow-hidden shadow-xl group relative">
+  <a href="/images/topology-s4hana-eam.svg" target="_blank" rel="noopener noreferrer" title="Click to view full-resolution vector architecture diagram">
+    <img src="/images/topology-s4hana-eam.svg" alt="SAP S/4HANA EAM 9-Phase Model, MRS/RSH Scheduling & SSAM Back-Propagation Topology" class="w-full h-auto rounded-lg" loading="lazy" />
+  </a>
+</div>
+
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                       Dispatch & Scheduling Architecture                    │

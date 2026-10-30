@@ -22,6 +22,12 @@ This guide outlines the key steps necessary to achieve seamless deployment and f
 
 The following diagram illustrates how SAP Dynamic Forms integrates across the SAP BTP Subaccount, S/4HANA on-premise/private cloud core, and the offline SSAM mobile client:
 
+<div class="my-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 p-2 sm:p-3 overflow-hidden shadow-xl group relative">
+  <a href="/images/topology-field-extensions.svg" target="_blank" rel="noopener noreferrer" title="Click to view full-resolution vector architecture diagram">
+    <img src="/images/topology-field-extensions.svg" alt="Field Extensions Architecture: GIS Spatial Mapping, SAP Dynamic Forms, and Mobile WCM Lockout" class="w-full h-auto rounded-lg" loading="lazy" />
+  </a>
+</div>
+
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    SAP BTP Subaccount (Cloud Services)                      │

@@ -26,6 +26,12 @@ The technical debt inherent in legacy Agentry deployments manifests in three cri
 
 ### Architectural Topology Comparison
 
+<div class="my-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 p-2 sm:p-3 overflow-hidden shadow-xl group relative">
+  <a href="/images/topology-legacy-migration.svg" target="_blank" rel="noopener noreferrer" title="Click to view full-resolution vector architecture diagram">
+    <img src="/images/topology-legacy-migration.svg" alt="Syclo-Agentry Legacy Architecture Sunset vs SAP SSAM & BTP Modern Cloud Target Architecture" class="w-full h-auto rounded-lg" loading="lazy" />
+  </a>
+</div>
+
 ```text
 LEGACY AGENTRY TOPOLOGY:
 ┌─────────────────┐       ┌───────────────────────┐       ┌─────────────────────┐

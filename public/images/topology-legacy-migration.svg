@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="font-family:system-ui, -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <radialGradient id="mig-glow-rose" cx="20%" cy="20%" r="45%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mig-glow-emerald" cx="80%" cy="20%" r="45%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mig-grad-legacy" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+    <linearGradient id="mig-grad-modern" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <marker id="mig-arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="480" fill="#09090b"/>
+  <rect width="1200" height="480" fill="url(#mig-glow-rose)"/>
+  <rect width="1200" height="480" fill="url(#mig-glow-emerald)"/>
+
+  <!-- Left Column: Legacy Platform Sunset (X: 40, Width: 480) -->
+  <g transform="translate(40, 24)">
+    <rect width="480" height="415" rx="14" fill="#101015" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="480" height="3" rx="1.5" fill="url(#mig-grad-legacy)"/>
+
+    <g transform="translate(20, 20)">
+      <rect width="130" height="22" rx="5" fill="#18181f" stroke="#f43f5e" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="65" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#fb7185" text-anchor="middle">LEGACY ON-PREM</text>
+      <text x="0" y="44" font-size="16" font-weight="700" fill="#ffffff">Syclo-Agentry Architecture (Sunset)</text>
+      <text x="0" y="62" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">High Infrastructure Maintenance • EOL Risk</text>
+    </g>
+
+    <!-- 3 Legacy Stack Cards -->
+    <g transform="translate(20, 84)">
+      <!-- Legacy Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="440" height="92" rx="8" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(14, 14)">
+          <text x="0" y="12" font-size="13" font-weight="700" fill="#f4f4f5">Syclo Work Manager 6.0 / 6.2 (Agentry)</text>
+          <text x="0" y="28" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#fb7185">Proprietary Agentry Client Engine</text>
+          <text x="0" y="48" font-size="11" fill="#71717a">• Monolithic 120MB+ mobile container</text>
+          <text x="0" y="64" font-size="11" fill="#71717a">• Rigid screen definitions &amp; slow compilation</text>
+        </g>
+      </g>
+      <!-- Legacy Card 2 -->
+      <g transform="translate(0, 106)">
+        <rect width="440" height="92" rx="8" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(14, 14)">
+          <text x="0" y="12" font-size="13" font-weight="700" fill="#f4f4f5">SMP 3.0 Server Infrastructure</text>
+          <text x="0" y="28" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#fb7185">Complex Java Business Logic</text>
+          <text x="0" y="48" font-size="11" fill="#71717a">• Entrenched OpenSearch fetch rules &amp; transaction stepping</text>
+          <text x="0" y="64" font-size="11" fill="#71717a">• On-prem Windows server clusters &amp; memory bloat</text>
+        </g>
+      </g>
+      <!-- Legacy Card 3 -->
+      <g transform="translate(0, 212)">
+        <rect width="440" height="92" rx="8" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(14, 14)">
+          <text x="0" y="12" font-size="13" font-weight="700" fill="#f4f4f5">SAP ECC &amp; NetWeaver Coupling</text>
+          <text x="0" y="28" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#fb7185">On-Premises ERP Core</text>
+          <text x="0" y="48" font-size="11" fill="#71717a">• Heavy custom table maintenance &amp; RFC contention</text>
+          <text x="0" y="64" font-size="11" fill="#71717a">• Multi-minute blocking synchronization cycles</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Center Migration Conduit (X: 520 to 680, Width: 160) -->
+  <g transform="translate(600, 210)">
+    <line x1="-60" y1="0" x2="60" y2="0" stroke="#10b981" stroke-width="2.5" stroke-dasharray="5,5" marker-end="url(#mig-arrow)"/>
+    <g transform="translate(-75, -50)">
+      <rect width="150" height="26" rx="6" fill="#18181f" stroke="#10b981" stroke-width="1.2"/>
+      <text x="75" y="17" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9" font-weight="700" fill="#34d399" text-anchor="middle">METADATA RETROFIT</text>
+    </g>
+    <g transform="translate(-75, 20)">
+      <rect width="150" height="26" rx="6" fill="#18181f" stroke="#10b981" stroke-width="1.2"/>
+      <text x="75" y="17" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9" font-weight="700" fill="#34d399" text-anchor="middle">DUAL-RUN CUTOVER</text>
+    </g>
+    <g transform="translate(-75, 55)">
+      <text x="75" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9" fill="#71717a" text-anchor="middle">Zero Downtime</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Modern Target Architecture (X: 680, Width: 480) -->
+  <g transform="translate(680, 24)">
+    <rect width="480" height="415" rx="14" fill="#101015" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="480" height="3" rx="1.5" fill="url(#mig-grad-modern)"/>
+
+    <g transform="translate(20, 20)">
+      <rect width="120" height="22" rx="5" fill="#18181f" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="60" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#34d399" text-anchor="middle">MODERN CLOUD</text>
+      <text x="0" y="44" font-size="16" font-weight="700" fill="#ffffff">SAP SSAM &amp; BTP Mobile Services</text>
+      <text x="0" y="62" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">Cloud Foundry • Clean Core S/4HANA</text>
+    </g>
+
+    <!-- 3 Modern Stack Cards -->
+    <g transform="translate(20, 84)">
+      <!-- Modern Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="440" height="92" rx="8" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(14, 14)">
+          <text x="0" y="12" font-size="13" font-weight="700" fill="#f4f4f5">SAP SSAM 2505 (MDK)</text>
+          <text x="0" y="28" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#34d399">Modern Cross-Platform Client</text>
+          <text x="0" y="48" font-size="11" fill="#a1a1aa">• Lightweight &lt;25MB binary for iOS &amp; Android</text>
+          <text x="0" y="64" font-size="11" fill="#71717a">• Clean JSON metadata &amp; JavaScript/TypeScript rules</text>
+        </g>
+      </g>
+      <!-- Modern Card 2 -->
+      <g transform="translate(0, 106)">
+        <rect width="440" height="92" rx="8" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(14, 14)">
+          <text x="0" y="12" font-size="13" font-weight="700" fill="#f4f4f5">SAP BTP Mobile Services</text>
+          <text x="0" y="28" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#34d399">Serverless Cloud Foundry</text>
+          <text x="0" y="48" font-size="11" fill="#a1a1aa">• Sub-2 second delta synchronization cycles</text>
+          <text x="0" y="64" font-size="11" fill="#71717a">• 45% infrastructure maintenance cost reduction</text>
+        </g>
+      </g>
+      <!-- Modern Card 3 -->
+      <g transform="translate(0, 212)">
+        <rect width="440" height="92" rx="8" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(14, 14)">
+          <text x="0" y="12" font-size="13" font-weight="700" fill="#f4f4f5">SAP S/4HANA Clean Core</text>
+          <text x="0" y="28" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#34d399">Standard BAPIs &amp; MAIF Add-On</text>
+          <text x="0" y="48" font-size="11" fill="#a1a1aa">• Cloud Connector Principal Propagation</text>
+          <text x="0" y="64" font-size="11" fill="#71717a">• Zero modification to standard ERP core kernel</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- FOOTER -->
+  <g transform="translate(40, 458)">
+    <circle cx="5" cy="5" r="3" fill="#10b981"/>
+    <text x="16" y="9" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10" fill="#71717a">100% Business Logic Preservation • Zero-Downtime Dual-Run Cutover • 45% Server Cost Reduction</text>
+    <text x="1070" y="9" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10" font-weight="600" fill="#34d399">sabarishk.com</text>
+  </g>
+</svg>

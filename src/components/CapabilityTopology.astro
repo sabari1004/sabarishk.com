@@ -1,0 +1,32 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+
+interface Props {
+  id: string;
+  class?: string;
+}
+
+const { id, class: className = '' } = Astro.props;
+
+const fileMap: Record<string, string> = {
+  'ssam-mdk-architecture': 'topology-ssam-mdk.svg',
+  's4hana-backend-integration': 'topology-s4hana-eam.svg',
+  'field-extensions-gis-wcm': 'topology-field-extensions.svg',
+  'legacy-migration-modernization': 'topology-legacy-migration.svg',
+};
+
+const fileName = fileMap[id];
+let svgContent = '';
+if (fileName) {
+  const filePath = path.join(process.cwd(), 'public', 'images', fileName);
+  if (fs.existsSync(filePath)) {
+    svgContent = fs.readFileSync(filePath, 'utf-8');
+  }
+}
+---
+
+<div class:list={['w-full overflow-hidden flex items-center justify-center', className]}>
+  <Fragment set:html={svgContent} />
+</div>
+
