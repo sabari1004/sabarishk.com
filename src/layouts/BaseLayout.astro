@@ -15,7 +15,7 @@ interface Props {
 const {
   title = 'Sabarish Kamaraju | Enterprise Solutions Architect & SAP Solutions Specialist',
   description = 'Enterprise solutions architect with 13+ years specializing in SAP Service & Asset Manager (SSAM), BTP, Syclo-Agentry migrations, and field workforce solutions for global utilities.',
-  image = '/og-image.svg',
+  image = '/og-image.png',
   article = false,
 } = Astro.props;
 
@@ -58,6 +58,49 @@ const siteTitle = title.includes('Sabarish Kamaraju') ? title : `${title} | Saba
     <meta property="twitter:title" content={siteTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+    <!-- JSON-LD Structured Data for Google Knowledge Graph & SEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://sabarishk.com/#person",
+          "name": "Sabarish Kamaraju",
+          "url": "https://sabarishk.com",
+          "image": "https://sabarishk.com/og-image.png",
+          "jobTitle": "Enterprise Solutions Architect",
+          "description": "Enterprise Solutions Architect with 13+ years specializing in SAP Service & Asset Manager (SSAM), SAP EAM, SAP BTP, and field workforce solutions for global utilities.",
+          "knowsAbout": [
+            "SAP Service and Asset Manager",
+            "SAP SSAM",
+            "SAP EAM",
+            "SAP BTP",
+            "S/4HANA",
+            "SAP MRS",
+            "SAP RSH",
+            "SAP ABAP",
+            "Syclo Agentry Migration",
+            "Mobile Development Kit (MDK)",
+            "Enterprise Asset Management"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/sabarish-k-6b979918/",
+            "https://www.credly.com/badges/c0bdd6e0-8510-490a-a778-796466214a8c",
+            "https://www.credly.com/badges/d3adcc74-a03e-42a3-a681-6e7882ec088e"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://sabarishk.com/#website",
+          "url": "https://sabarishk.com",
+          "name": "Sabarish Kamaraju | Enterprise Solutions Architect & SAP Solutions Specialist",
+          "publisher": {
+            "@id": "https://sabarishk.com/#person"
+          }
+        }
+      ]
+    })} />
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
