@@ -6,7 +6,8 @@ import {
   ArrowRight, 
   CheckCircle2, 
   Cpu, 
-  BookOpen
+  BookOpen,
+  ExternalLink
 } from './icons';
 ---
 
@@ -205,17 +206,49 @@ import {
     </div>
 
     <!-- Architectural Topology Diagram Card -->
-    <div class="card-surface rounded-2xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 mb-12 shadow-sm space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800/70 pb-3">
-        <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-semibold">
+    <div class="card-surface rounded-2xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-900/40 mb-12 shadow-sm space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200 dark:border-zinc-800/70 pb-4">
+        <div class="flex items-center gap-2.5 text-xs font-mono uppercase tracking-wider text-zinc-900 dark:text-zinc-200 font-semibold">
           <Cpu class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>System Topology: Decoupled Multi-Tier Architecture</span>
         </div>
-        <span class="text-[11px] font-mono text-zinc-500">Sub-Second Sync Flow</span>
+        <div class="flex items-center gap-3">
+          <span class="text-[11px] font-mono text-zinc-500">Sub-Second Sync Flow</span>
+          <a 
+            href="/images/architecture-topology.svg" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:underline"
+            title="Open architecture diagram full size"
+          >
+            <span>Open Vector SVG</span>
+            <ExternalLink class="w-3.5 h-3.5" />
+          </a>
+        </div>
       </div>
 
-      <div class="overflow-x-auto text-[11px] sm:text-xs font-mono leading-relaxed text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-950 p-4 sm:p-5 rounded-xl border border-zinc-200 dark:border-zinc-800/60">
-        <pre class="bg-transparent p-0 m-0 border-none">
+      <!-- High-Resolution Vector Architecture Topology Diagram -->
+      <div class="relative rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800/80 bg-zinc-950 p-2 sm:p-4 shadow-inner">
+        <a href="/images/architecture-topology.svg" target="_blank" rel="noopener noreferrer" class="block group cursor-zoom-in" title="Click to view full-resolution diagram">
+          <img 
+            src="/images/architecture-topology.svg" 
+            alt="Decoupled Multi-Tier Architecture Topology: Field Mobile App, Dispatch Scheduling Engine, Integration Gateway, and SAP S/4HANA Enterprise Core" 
+            class="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-[1.005]"
+            width="1280"
+            height="840"
+            loading="lazy"
+          />
+        </a>
+      </div>
+
+      <!-- Collapsible Technical ASCII Blueprint -->
+      <details class="group rounded-xl border border-zinc-200 dark:border-zinc-800/70 bg-zinc-50/60 dark:bg-zinc-950/60 text-xs font-mono">
+        <summary class="cursor-pointer px-4 py-2.5 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium flex items-center justify-between select-none">
+          <span>View Raw ASCII Topology Schematic</span>
+          <span class="text-[10px] text-zinc-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="overflow-x-auto p-4 pt-1 text-[11px] leading-relaxed text-zinc-600 dark:text-zinc-400 border-t border-zinc-200 dark:border-zinc-800/60">
+          <pre class="bg-transparent p-0 m-0 border-none">
 ┌───────────────────────────────────────┐        ┌───────────────────────────────────────┐
 │       Field Mobile Application        │        │      Dispatch &amp; Scheduling Engine     │
 │       (Offline Encrypted SQLite)      │        │       (Real-Time Gantt Console)       │
@@ -239,7 +272,8 @@ import {
 │   │ Orders, Operations, FLOCs │  │ Service Orders &amp; Items │  │ Time &amp; Inventory   │   │
 │   └───────────────────────────┘  └─────────────────────────┘  └────────────────────┘   │
 └────────────────────────────────────────────────────────────────────────────────────────┘</pre>
-      </div>
+        </div>
+      </details>
     </div>
 
     <!-- Architectural Contrast Matrix (Table) -->

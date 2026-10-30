@@ -1,0 +1,368 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 840" width="1280" height="840" style="font-family:system-ui, -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Background Ambient Glow Accents -->
+    <radialGradient id="glow-emerald" cx="18%" cy="14%" r="40%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-cyan" cx="82%" cy="14%" r="40%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-gateway" cx="50%" cy="46%" r="45%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-core" cx="50%" cy="84%" r="45%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Linear Gradients for Accent Bars -->
+    <linearGradient id="grad-emerald" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="grad-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="grad-gateway" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="grad-core" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+
+    <!-- Subtle Drop Shadows -->
+    <filter id="shadow-card" x="-3%" y="-3%" width="106%" height="110%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="arrow-emerald" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#06b6d4"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1280" height="840" fill="#09090b"/>
+  <rect width="1280" height="840" fill="url(#glow-emerald)"/>
+  <rect width="1280" height="840" fill="url(#glow-cyan)"/>
+  <rect width="1280" height="840" fill="url(#glow-gateway)"/>
+  <rect width="1280" height="840" fill="url(#glow-core)"/>
+
+  <!-- Blueprint Vertical Gridlines -->
+  <g stroke="#1e1e24" stroke-width="1" stroke-dasharray="4,8" opacity="0.65">
+    <line x1="40" y1="0" x2="40" y2="840"/>
+    <line x1="330" y1="0" x2="330" y2="840"/>
+    <line x1="640" y1="0" x2="640" y2="840"/>
+    <line x1="950" y1="0" x2="950" y2="840"/>
+    <line x1="1240" y1="0" x2="1240" y2="840"/>
+  </g>
+
+  <!-- ==========================================
+       TIER 1: PRESENTATION & FIELD EDGE
+       Y: 30 to 220
+       ========================================== -->
+
+  <!-- Card 1A: Field Mobile Application (Offline-Native) -->
+  <g transform="translate(40, 30)" filter="url(#shadow-card)">
+    <rect width="580" height="190" rx="14" fill="#111116" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="580" height="3" rx="1.5" fill="url(#grad-emerald)"/>
+
+    <!-- Header Section -->
+    <g transform="translate(24, 20)">
+      <!-- Smartphone Badge Icon -->
+      <rect width="38" height="38" rx="8" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.3"/>
+      <rect x="13" y="9" width="12" height="20" rx="2.5" fill="none" stroke="#34d399" stroke-width="1.8"/>
+      <circle cx="19" cy="25" r="1.2" fill="#34d399"/>
+      <line x1="16" y1="12" x2="22" y2="12" stroke="#34d399" stroke-width="1.2" stroke-linecap="round"/>
+
+      <!-- Title & Subtitle -->
+      <text x="50" y="17" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.2px">Field Mobile Application</text>
+      <text x="50" y="33" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">Offline Encrypted SQLite • Native Execution</text>
+
+      <!-- Pill Badges -->
+      <g transform="translate(370, 7)">
+        <rect width="70" height="22" rx="5" fill="#18181f" stroke="#3f3f46" stroke-width="1"/>
+        <text x="35" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="600" fill="#a1a1aa" text-anchor="middle">LAYER 01</text>
+      </g>
+      <g transform="translate(450, 7)">
+        <rect width="105" height="22" rx="11" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+        <circle cx="10" cy="11" r="3" fill="#10b981"/>
+        <text x="19" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#34d399">OFFLINE-1ST</text>
+      </g>
+    </g>
+
+    <line x1="24" y1="74" x2="556" y2="74" stroke="#232328" stroke-width="1"/>
+
+    <!-- Feature Bullets -->
+    <g transform="translate(24, 96)">
+      <circle cx="5" cy="8" r="3.5" fill="#10b981"/>
+      <text x="18" y="12" font-size="12.5" fill="#f4f4f5" font-weight="500">Local writes &amp; JSA safety checklists</text>
+      <text x="410" y="12" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#10b981">&lt;100ms Writes</text>
+
+      <circle cx="5" cy="34" r="3.5" fill="#10b981"/>
+      <text x="18" y="38" font-size="12.5" fill="#d4d4d8">CATS labor times &amp; readings (IMRG / AFRU)</text>
+      <text x="410" y="38" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#71717a">Time &amp; Counters</text>
+
+      <circle cx="5" cy="60" r="3.5" fill="#10b981"/>
+      <text x="18" y="64" font-size="12.5" fill="#d4d4d8">Work order execution &amp; photo attachments</text>
+      <text x="410" y="64" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#38bdf8">Deterministic</text>
+    </g>
+  </g>
+
+  <!-- Card 1B: Dispatch & Scheduling Engine (Gantt) -->
+  <g transform="translate(660, 30)" filter="url(#shadow-card)">
+    <rect width="580" height="190" rx="14" fill="#111116" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="580" height="3" rx="1.5" fill="url(#grad-cyan)"/>
+
+    <!-- Header Section -->
+    <g transform="translate(24, 20)">
+      <!-- Calendar Badge Icon -->
+      <rect width="38" height="38" rx="8" fill="#06b6d4" fill-opacity="0.12" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.3"/>
+      <rect x="10" y="9" width="18" height="18" rx="2.5" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+      <line x1="10" y1="15" x2="28" y2="15" stroke="#38bdf8" stroke-width="1.4"/>
+      <line x1="15" y1="7" x2="15" y2="11" stroke="#38bdf8" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="23" y1="7" x2="23" y2="11" stroke="#38bdf8" stroke-width="1.4" stroke-linecap="round"/>
+
+      <!-- Title & Subtitle -->
+      <text x="50" y="17" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.2px">Dispatch &amp; Scheduling Engine</text>
+      <text x="50" y="33" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">Real-Time Gantt Console • WebSockets</text>
+
+      <!-- Pill Badges -->
+      <g transform="translate(370, 7)">
+        <rect width="70" height="22" rx="5" fill="#18181f" stroke="#3f3f46" stroke-width="1"/>
+        <text x="35" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="600" fill="#a1a1aa" text-anchor="middle">LAYER 01</text>
+      </g>
+      <g transform="translate(450, 7)">
+        <rect width="105" height="22" rx="11" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4"/>
+        <circle cx="10" cy="11" r="3" fill="#06b6d4"/>
+        <text x="19" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#38bdf8">LIVE GANTT</text>
+      </g>
+    </g>
+
+    <line x1="24" y1="74" x2="556" y2="74" stroke="#232328" stroke-width="1"/>
+
+    <!-- Feature Bullets -->
+    <g transform="translate(24, 96)">
+      <circle cx="5" cy="8" r="3.5" fill="#06b6d4"/>
+      <text x="18" y="12" font-size="12.5" fill="#f4f4f5" font-weight="500">Drag-and-drop crew &amp; shift leveling</text>
+      <text x="410" y="12" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#38bdf8">Interactive</text>
+
+      <circle cx="5" cy="34" r="3.5" fill="#06b6d4"/>
+      <text x="18" y="38" font-size="12.5" fill="#d4d4d8">Live status back-propagation to dispatch</text>
+      <text x="410" y="38" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#10b981">&lt;50ms Events</text>
+
+      <circle cx="5" cy="60" r="3.5" fill="#06b6d4"/>
+      <text x="18" y="64" font-size="12.5" fill="#d4d4d8">Multi-crew capacity balancing &amp; break-in jobs</text>
+      <text x="410" y="64" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#71717a">Resource Sched</text>
+    </g>
+  </g>
+
+
+  <!-- ==========================================
+       INTER-TIER FLOW 1 (TIER 1 -> TIER 2)
+       Y: 220 to 310
+       ========================================== -->
+
+  <!-- Left Channel: HTTPS Delta Sync -->
+  <g transform="translate(330, 220)">
+    <line x1="0" y1="0" x2="0" y2="88" stroke="#10b981" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-emerald)"/>
+    
+    <g transform="translate(-115, 29)">
+      <rect width="230" height="30" rx="15" fill="#14141a" stroke="#10b981" stroke-width="1.3"/>
+      <circle cx="16" cy="15" r="4" fill="#10b981"/>
+      <text x="28" y="19" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#34d399">HTTPS DELTA SYNC</text>
+      <text x="160" y="19" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="#71717a">JSON</text>
+    </g>
+  </g>
+
+  <!-- Right Channel: WebSocket / REST -->
+  <g transform="translate(950, 220)">
+    <line x1="0" y1="0" x2="0" y2="88" stroke="#06b6d4" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-cyan)"/>
+    
+    <g transform="translate(-120, 29)">
+      <rect width="240" height="30" rx="15" fill="#14141a" stroke="#06b6d4" stroke-width="1.3"/>
+      <circle cx="16" cy="15" r="4" fill="#06b6d4"/>
+      <text x="28" y="19" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#38bdf8">WEBSOCKET / REST</text>
+      <text x="165" y="19" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" fill="#71717a">EVENTS</text>
+    </g>
+  </g>
+
+
+  <!-- ==========================================
+       TIER 2: INTEGRATION & ORCHESTRATION GATEWAY
+       Y: 310 to 490
+       ========================================== -->
+
+  <g transform="translate(40, 310)" filter="url(#shadow-card)">
+    <rect width="1200" height="180" rx="16" fill="#101015" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="1200" height="3" rx="1.5" fill="url(#grad-gateway)"/>
+
+    <!-- Gateway Title Bar -->
+    <g transform="translate(24, 26)">
+      <!-- Layer Badge -->
+      <rect width="70" height="22" rx="5" fill="#18181f" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="35" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#38bdf8" text-anchor="middle">LAYER 02</text>
+
+      <text x="82" y="16" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.2px">Enterprise Integration &amp; Orchestration Gateway</text>
+      <text x="540" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">High-Throughput Decoupled Broker</text>
+
+      <!-- Pill Badge -->
+      <g transform="translate(980, 0)">
+        <rect width="170" height="24" rx="12" fill="#18181f" stroke="#3f3f46" stroke-width="1"/>
+        <circle cx="14" cy="12" r="3.5" fill="#10b981"/>
+        <text x="25" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#e4e4e7">STATELESS POOL</text>
+      </g>
+    </g>
+
+    <!-- 3 Internal Service Blocks -->
+    <g transform="translate(20, 60)">
+      <!-- Block 1: Resilient Offline Sync Queue -->
+      <g transform="translate(0, 0)">
+        <rect width="370" height="100" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(18, 18)">
+          <circle cx="5" cy="6" r="4.5" fill="#10b981"/>
+          <text x="18" y="10" font-size="13.5" font-weight="700" fill="#f4f4f5">Resilient Offline Sync Q</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#34d399">Guaranteed Delivery</text>
+          <text x="0" y="47" font-size="11.5" fill="#a1a1aa">• Idempotent payload sequencing &amp; triage</text>
+          <text x="0" y="65" font-size="11.5" fill="#71717a">• Conflict resolution &amp; recovery journal</text>
+        </g>
+      </g>
+
+      <!-- Block 2: Transactional BAPI Pool -->
+      <g transform="translate(395, 0)">
+        <rect width="370" height="100" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(18, 18)">
+          <circle cx="5" cy="6" r="4.5" fill="#06b6d4"/>
+          <text x="18" y="10" font-size="13.5" font-weight="700" fill="#f4f4f5">Transactional BAPI Pool</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#38bdf8">Parallel RFC Worker Pool</text>
+          <text x="0" y="47" font-size="11.5" fill="#a1a1aa">• Non-blocking thread multiplexing</text>
+          <text x="0" y="65" font-size="11.5" fill="#71717a">• LUW commit &amp; rollback protection</text>
+        </g>
+      </g>
+
+      <!-- Block 3: Auth & RBAC Broker -->
+      <g transform="translate(790, 0)">
+        <rect width="370" height="100" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(18, 18)">
+          <circle cx="5" cy="6" r="4.5" fill="#818cf8"/>
+          <text x="18" y="10" font-size="13.5" font-weight="700" fill="#f4f4f5">Auth / RBAC Broker</text>
+          <text x="18" y="27" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#a5b4fc">Identity &amp; Security</text>
+          <text x="0" y="47" font-size="11.5" fill="#a1a1aa">• OAuth 2.0 / SAML 2.0 token propagation</text>
+          <text x="0" y="65" font-size="11.5" fill="#71717a">• Granular plant, planner &amp; crew scope</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ==========================================
+       INTER-TIER FLOW 2 (TIER 2 -> TIER 3)
+       Y: 490 to 580
+       ========================================== -->
+
+  <!-- Central Channel: Principal Propagation & RFC -->
+  <g transform="translate(640, 490)">
+    <line x1="0" y1="0" x2="0" y2="88" stroke="#38bdf8" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+    
+    <g transform="translate(-215, 29)">
+      <rect width="430" height="30" rx="15" fill="#14141a" stroke="#38bdf8" stroke-width="1.3"/>
+      <circle cx="18" cy="15" r="4" fill="#38bdf8"/>
+      <text x="32" y="19" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#e0f2fe">PRINCIPAL PROPAGATION • RFC / BAPIs • mTLS</text>
+    </g>
+  </g>
+
+
+  <!-- ==========================================
+       TIER 3: SAP S/4HANA ENTERPRISE CORE
+       Y: 580 to 780
+       ========================================== -->
+
+  <g transform="translate(40, 580)" filter="url(#shadow-card)">
+    <rect width="1200" height="200" rx="16" fill="#101015" stroke="#27272a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="1200" height="3" rx="1.5" fill="url(#grad-core)"/>
+
+    <!-- Core Title Bar -->
+    <g transform="translate(24, 26)">
+      <!-- Layer Badge -->
+      <rect width="70" height="22" rx="5" fill="#18181f" stroke="#6366f1" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="35" y="15" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="9.5" font-weight="700" fill="#a5b4fc" text-anchor="middle">LAYER 03</text>
+
+      <text x="82" y="16" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.2px">SAP S/4HANA Enterprise Core</text>
+      <text x="345" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" fill="#a1a1aa">Clean Core Compliant Architecture • Standard BAPI &amp; CDS Handlers</text>
+
+      <!-- Pill Badge -->
+      <g transform="translate(945, 0)">
+        <rect width="205" height="24" rx="12" fill="#18181f" stroke="#6366f1" stroke-width="1"/>
+        <circle cx="14" cy="12" r="3.5" fill="#818cf8"/>
+        <text x="25" y="16" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="700" fill="#c7d2fe">ZERO CORE MODIFICATION</text>
+      </g>
+    </g>
+
+    <!-- 3 Internal S/4HANA Modules -->
+    <g transform="translate(20, 60)">
+      <!-- Module 1: Plant Maintenance PM -->
+      <g transform="translate(0, 0)">
+        <rect width="370" height="120" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(18, 18)">
+          <rect width="26" height="26" rx="6" fill="#10b981" fill-opacity="0.15"/>
+          <text x="13" y="18" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">PM</text>
+          
+          <text x="36" y="18" font-size="14" font-weight="700" fill="#f4f4f5">Plant Maintenance (PM)</text>
+          <text x="0" y="44" font-size="11.5" fill="#d4d4d8">• Orders, Operations, FLOCs (AUFK/AFVC)</text>
+          <text x="0" y="64" font-size="11.5" fill="#a1a1aa">• Functional Locations &amp; Equipment Master</text>
+          <text x="0" y="84" font-size="11.5" fill="#71717a">• Maintenance Plans, Cycles &amp; Task Lists</text>
+        </g>
+      </g>
+
+      <!-- Module 2: Customer Service CS -->
+      <g transform="translate(395, 0)">
+        <rect width="370" height="120" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(18, 18)">
+          <rect width="26" height="26" rx="6" fill="#06b6d4" fill-opacity="0.15"/>
+          <text x="13" y="18" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="11" font-weight="800" fill="#38bdf8" text-anchor="middle">CS</text>
+
+          <text x="36" y="18" font-size="14" font-weight="700" fill="#f4f4f5">Customer Service (CS)</text>
+          <text x="0" y="44" font-size="11.5" fill="#d4d4d8">• Service Orders &amp; Items (Notification QMEL)</text>
+          <text x="0" y="64" font-size="11.5" fill="#a1a1aa">• Warranty &amp; Contract Entitlement checks</text>
+          <text x="0" y="84" font-size="11.5" fill="#71717a">• Dispatch line items &amp; billing status release</text>
+        </g>
+      </g>
+
+      <!-- Module 3: Workforce & Materials -->
+      <g transform="translate(790, 0)">
+        <rect width="370" height="120" rx="10" fill="#17171e" stroke="#27272a" stroke-width="1.2"/>
+        <g transform="translate(18, 18)">
+          <rect width="26" height="26" rx="6" fill="#818cf8" fill-opacity="0.15"/>
+          <text x="13" y="18" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="800" fill="#a5b4fc" text-anchor="middle">MM</text>
+
+          <text x="36" y="18" font-size="14" font-weight="700" fill="#f4f4f5">CATS / HR / MIGO</text>
+          <text x="0" y="44" font-size="11.5" fill="#d4d4d8">• Time &amp; Inventory (CATSDB / MSEG / RESB)</text>
+          <text x="0" y="64" font-size="11.5" fill="#a1a1aa">• Van stock inventory &amp; material staging</text>
+          <text x="0" y="84" font-size="11.5" fill="#71717a">• Automated Goods Issue (Movement Type 261)</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==========================================
+       BOTTOM METADATA FOOTER
+       ========================================== -->
+  <g transform="translate(40, 810)">
+    <circle cx="6" cy="6" r="3.5" fill="#10b981"/>
+    <text x="18" y="10" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" fill="#71717a">Clean Core Compliant Architecture • Guaranteed Sub-Second Write Latency • Decoupled Enterprise Multi-Tier</text>
+    <text x="1150" y="10" font-family="'SF Mono', Menlo, Consolas, monospace" font-size="10.5" font-weight="600" fill="#34d399">sabarishk.com</text>
+  </g>
+</svg>
