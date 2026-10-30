@@ -12,7 +12,7 @@ import {
   ExternalLink 
 } from '../components/icons';
 
-const googleScriptUrl = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || '';
+const googleScriptUrl = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbyy_NHOGlHftSZEnKYdUxN--NV92JdMNFN8-6w9J36kDp1AJSgs_kPE0GwhEKWavkPO/exec';
 ---
 
 <BaseLayout
@@ -326,26 +326,24 @@ const googleScriptUrl = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL || '';
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
+      // Prepare URLSearchParams for robust Google Apps Script parameter ingestion
+      const params = new URLSearchParams();
+      params.append('name', String(data.name || ''));
+      params.append('organization', String(data.organization || ''));
+      params.append('email', String(data.email || ''));
+      params.append('inquiryType', String(data.inquiryType || ''));
+      params.append('message', String(data.message || ''));
+      params.append('timestamp', new Date().toISOString());
+
       // Endpoint configured via data attribute or environment variable
       const endpoint = form.dataset.endpoint || '';
 
       try {
         if (endpoint && endpoint.startsWith('https://script.google.com/')) {
-          // Send to Google Apps Script Web App using text/plain to bypass CORS preflight restrictions
           await fetch(endpoint, {
             method: 'POST',
             mode: 'no-cors',
-            headers: {
-              'Content-Type': 'text/plain;charset=utf-8',
-            },
-            body: JSON.stringify({
-              name: data.name,
-              organization: data.organization,
-              email: data.email,
-              inquiryType: data.inquiryType,
-              message: data.message,
-              timestamp: new Date().toISOString(),
-            }),
+            body: params,
           });
         } else {
           // Graceful simulated delay for local preview before endpoint is configured
